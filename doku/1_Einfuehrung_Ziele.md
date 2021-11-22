@@ -17,4 +17,4 @@
 | ToDo | Muss noch beschrieben werden |
 
 ## 1.3 Stakeholder
-Es gibt nur _aktuell_ ein Stakeholder Rico Schulz :D
+Es gibt _aktuell_ nur ein Stakeholder Rico Schulz :D
