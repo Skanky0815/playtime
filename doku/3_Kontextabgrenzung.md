@@ -1,4 +1,5 @@
 # 3. Kontextabgrenzung
+Dieser Abschnitt beschreibt das Umfeld von PlayTime. Für welche Benutzer ist es da, und mit welchen Fremdsystemen interagiert es?
 
 ## 3.1 Fachlicher Kontext
 ![](system-context.drawio.png)
