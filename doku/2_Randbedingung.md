@@ -4,6 +4,8 @@
 | Randbedingung | Erläuterungen, Hintergrund |
 |---------------|----------------------------|
 | Implementierung in Kotlin | Die Software wird in Kotlin implementiert |
+| Testabdeckung | Die Testabdeckung mit UnitTest soll mindestens 90% sein |
+| Architektur Tests | Die Einhaltung der Architektur wir via [ArchUnit](https://www.archunit.org) getestet |
 
 ## 2.2 Organisatorisch
 | Randbedingung | Erläuterungen, Hintergrund |
@@ -19,3 +21,4 @@
 | Randbedingung | Erläuterungen, Hintergrund |
 |---------------|----------------------------|
 | Sprache | Der Code wird komplett in Englisch verfasst |
+| Coding conventions | Der Code wird nach den Code conventions von [kotlinlang.org](https://kotlinlang.org/docs/coding-conventions.html) formatiert |
