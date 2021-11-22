@@ -1,0 +1,95 @@
+<mxfile host="app.diagrams.net" modified="2021-11-22T08:35:11.844Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.55 Safari/537.36" etag="ThP5Wf5_2T-Ucpnit8Q_" version="15.7.3" type="github">
+  <diagram id="kgpKYQtTHZ0yAKxKKP6v" name="Page-1">
+    <mxGraphModel dx="742" dy="477" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="4Ecrbyj1NZDGz5UuIIZG-1" value="" style="shape=umlLifeline;participant=umlActor;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;verticalAlign=top;spacingTop=36;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="110" y="120" width="20" height="480" as="geometry" />
+        </mxCell>
+        <mxCell id="4Ecrbyj1NZDGz5UuIIZG-2" value=":Player" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="270" y="120" width="100" height="480" as="geometry" />
+        </mxCell>
+        <mxCell id="4Ecrbyj1NZDGz5UuIIZG-11" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="4Ecrbyj1NZDGz5UuIIZG-2">
+          <mxGeometry x="45" y="80" width="10" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="4Ecrbyj1NZDGz5UuIIZG-13" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="4Ecrbyj1NZDGz5UuIIZG-2">
+          <mxGeometry x="45" y="210" width="10" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="4Ecrbyj1NZDGz5UuIIZG-14" value="sendRegistrationSuccessMail(mail)" style="html=1;verticalAlign=bottom;startArrow=oval;startFill=1;endArrow=block;startSize=8;rounded=0;" edge="1" parent="4Ecrbyj1NZDGz5UuIIZG-2" target="4Ecrbyj1NZDGz5UuIIZG-5">
+          <mxGeometry width="60" relative="1" as="geometry">
+            <mxPoint x="54.998571428571324" y="220" as="sourcePoint" />
+            <mxPoint x="314.57000000000005" y="220" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="165.07" y="220" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4Ecrbyj1NZDGz5UuIIZG-17" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="4Ecrbyj1NZDGz5UuIIZG-2">
+          <mxGeometry x="45" y="360" width="10" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="4Ecrbyj1NZDGz5UuIIZG-3" value="createPlayer(email, password)" style="html=1;verticalAlign=bottom;startArrow=oval;startFill=1;endArrow=block;startSize=8;rounded=0;" edge="1" parent="1" target="4Ecrbyj1NZDGz5UuIIZG-2">
+          <mxGeometry width="60" relative="1" as="geometry">
+            <mxPoint x="119.92857142857144" y="200" as="sourcePoint" />
+            <mxPoint x="249.5" y="200" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4Ecrbyj1NZDGz5UuIIZG-4" value="successful" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;rounded=0;" edge="1" parent="1" source="4Ecrbyj1NZDGz5UuIIZG-2" target="4Ecrbyj1NZDGz5UuIIZG-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="380" y="300" as="sourcePoint" />
+            <mxPoint x="300" y="300" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="270" y="280" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4Ecrbyj1NZDGz5UuIIZG-5" value=":Application" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="530" y="120" width="100" height="480" as="geometry" />
+        </mxCell>
+        <mxCell id="4Ecrbyj1NZDGz5UuIIZG-7" value="activatePlayer(email, token)" style="html=1;verticalAlign=bottom;startArrow=oval;startFill=1;endArrow=block;startSize=8;rounded=0;" edge="1" parent="1" source="4Ecrbyj1NZDGz5UuIIZG-1">
+          <mxGeometry width="60" relative="1" as="geometry">
+            <mxPoint x="390" y="330" as="sourcePoint" />
+            <mxPoint x="320" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4Ecrbyj1NZDGz5UuIIZG-12" value="sendConfirmationMail(mail, conformationUrl)" style="html=1;verticalAlign=bottom;startArrow=oval;startFill=1;endArrow=block;startSize=8;rounded=0;" edge="1" parent="1" source="4Ecrbyj1NZDGz5UuIIZG-11" target="4Ecrbyj1NZDGz5UuIIZG-5">
+          <mxGeometry width="60" relative="1" as="geometry">
+            <mxPoint x="330" y="210" as="sourcePoint" />
+            <mxPoint x="450" y="310" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="430" y="210" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4Ecrbyj1NZDGz5UuIIZG-15" value="playerObject" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;rounded=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="319.57" y="410" as="sourcePoint" />
+            <mxPoint x="119.99857142857144" y="410" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="270.07" y="410" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4Ecrbyj1NZDGz5UuIIZG-16" value="completePlayer(firstName, lastName, postalCode)" style="html=1;verticalAlign=bottom;startArrow=oval;startFill=1;endArrow=block;startSize=8;rounded=0;" edge="1" parent="1" source="4Ecrbyj1NZDGz5UuIIZG-1" target="4Ecrbyj1NZDGz5UuIIZG-2">
+          <mxGeometry width="60" relative="1" as="geometry">
+            <mxPoint x="370" y="450" as="sourcePoint" />
+            <mxPoint x="430" y="450" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="260" y="480" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4Ecrbyj1NZDGz5UuIIZG-18" value="playerObject" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;rounded=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="319.56999999999994" y="560" as="sourcePoint" />
+            <mxPoint x="119.9985714285715" y="560" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="270.07" y="560" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
