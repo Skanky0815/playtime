@@ -27,6 +27,7 @@ Die [Qualitätsszenarien in Abschnitt 10](10_Qualitaetsanforderung.md) konkretis
 Die folgende Tabelle stellt die Stakeholder von DokChess und ihre jeweilige Intention dar.
 
 | Wer? | Interesse, Bezug |
+|------|------------------|
 | Rico Schulz | Initiator, Architekt und Entwickler |
 
 Es gibt _aktuell_ nur ein Stakeholder Rico Schulz :D
