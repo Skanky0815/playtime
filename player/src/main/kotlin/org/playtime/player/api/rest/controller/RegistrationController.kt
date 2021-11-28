@@ -5,7 +5,7 @@ import org.playtime.player.api.rest.request.NewPlayer
 import org.playtime.player.api.rest.request.VerifyPlayer
 import org.playtime.player.api.rest.response.Player
 import org.playtime.player.repository.PlayerRepository
-import org.playtime.player.service.Registration
+import org.playtime.player.service.registration.Registration
 import org.springframework.web.bind.annotation.*
 
 @RestController
@@ -30,7 +30,4 @@ class RegistrationController(
         @PathVariable playerId: String,
         @RequestBody completePlayer: CompletePlayer
     ): Player = Player.from(registration.completePlayer(playerId, completePlayer))
-
-    @GetMapping
-    fun list(): List<Player> = Player.from(playerRepository.findAll())
 }

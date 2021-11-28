@@ -1,4 +1,4 @@
-package org.playtime.player.service
+package org.playtime.player.service.registration
 
 interface VerifyData {
     val id: String

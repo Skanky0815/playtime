@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test
 import org.playtime.player.exception.PlayerExistsException
 import org.playtime.player.model.Player
 import org.playtime.player.repository.PlayerRepository
+import org.playtime.player.service.registration.Registration
+import org.playtime.player.service.registration.RegistrationData
 
 class RegistrationTest {
     private lateinit var playerRepository: PlayerRepository;
