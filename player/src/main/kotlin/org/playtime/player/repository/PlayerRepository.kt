@@ -14,7 +14,7 @@ open class PlayerRepository {
 
     fun existByMail(email: String): Boolean = playerMap.filter { entry -> entry.value.email == email }.isNotEmpty()
 
-    fun findOrFail(playerId: String): Player {
-        return playerMap[playerId]!!
-    }
+    fun findOrFail(playerId: String): Player = playerMap[playerId]!!
+
+    fun findAll(): List<Player> = playerMap.toList().map { pair -> pair.second }
 }
