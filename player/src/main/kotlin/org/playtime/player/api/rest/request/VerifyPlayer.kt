@@ -1,6 +1,6 @@
 package org.playtime.player.api.rest.request
 
-import org.playtime.player.service.VerifyData
+import org.playtime.player.service.registration.VerifyData
 
 data class VerifyPlayer(
     override val id: String,

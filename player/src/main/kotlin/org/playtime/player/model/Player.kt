@@ -23,7 +23,4 @@ data class Player(
         isVerified = true
         verifiedAt = LocalDateTime.now()
     }
-
-    fun isVerified(): Boolean = isVerified
-    fun isNotVerified(): Boolean = !isVerified
 }

@@ -1,4 +1,4 @@
-package org.playtime.player.service
+package org.playtime.player.service.registration
 
 import org.playtime.player.exception.PlayerExistsException
 import org.playtime.player.model.Player
