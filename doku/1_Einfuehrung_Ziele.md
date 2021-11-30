@@ -1,5 +1,4 @@
 # 1. Einführung und Ziele
-
 Dieser Abschnitt führt in die Aufgabenstellung ein und skizziert die Ziele, die PlayTime verfolgt.
 
 ## 1.1 Aufgabenstellung

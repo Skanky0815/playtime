@@ -1,6 +1,6 @@
 # 12. Glossar
 
-| Word | Code | Beschreibung |
+| Wort | Code | Beschreibung |
 |------|------|--------------|
 | Spieler | Player | Sind die Benutzer des Systems |
 | Spielgruppe | Playgroup | Ist eine Gruppe von Spielern |
