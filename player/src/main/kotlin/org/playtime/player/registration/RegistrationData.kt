@@ -1,4 +1,4 @@
-package org.playtime.player.service.registration
+package org.playtime.player.registration
 
 interface RegistrationData {
     val email: String

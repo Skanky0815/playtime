@@ -1,6 +1,6 @@
-package org.playtime.player.api.rest.request
+package org.playtime.application.rest.request
 
-import org.playtime.player.service.registration.CompleteData
+import org.playtime.player.registration.CompleteData
 
 data class CompletePlayer(
     override val id: String,

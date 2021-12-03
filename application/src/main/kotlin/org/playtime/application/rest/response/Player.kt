@@ -1,6 +1,6 @@
-package org.playtime.player.api.rest.response
+package org.playtime.application.rest.response
 
-import org.playtime.player.model.Player as PlayerModel
+import org.playtime.player.Player as PlayerModel
 
 data class Player(
     val id: String,
@@ -8,7 +8,7 @@ data class Player(
 ) {
     companion object {
         fun from(player: PlayerModel): Player = Player(
-            id = player.id.toString(),
+            id = player.idAsString(),
             email = player.email,
         )
 

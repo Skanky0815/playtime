@@ -4,7 +4,7 @@ plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.6.0'
 }
 
-group 'org.example'
+group 'org.playtime'
 version '1.0-SNAPSHOT'
 
 repositories {
@@ -18,14 +18,13 @@ dependencyManagement {
 }
 
 dependencies {
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.0'
     implementation 'org.springframework.boot:spring-boot-starter:2.5.6'
-    implementation 'org.springframework.boot:spring-boot-starter-web:2.5.6'
-    implementation('com.fasterxml.jackson.module:jackson-module-kotlin:2.13.0')
-    implementation('org.jetbrains.kotlin:kotlin-reflect:1.6.0')
-    implementation('org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.0')
-    implementation 'junit:junit:4.13.2'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.5.6'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.0'
+    implementation 'org.jetbrains.kotlin:kotlin-reflect:1.6.0'
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+    testImplementation 'com.tngtech.archunit:archunit:0.22.0'
+    testImplementation 'org.mockito:mockito-core:4.0.0'
 }
 
 test {
