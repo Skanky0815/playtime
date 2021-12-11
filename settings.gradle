@@ -3,4 +3,5 @@ rootProject.name = 'playtime'
 include 'player'
 include 'appointment'
 include 'application'
+include 'sharedkernel'
 

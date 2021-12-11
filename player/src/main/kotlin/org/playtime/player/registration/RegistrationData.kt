@@ -1,5 +1,7 @@
 package org.playtime.player.registration
 
+import org.playtime.player.player.Email
+
 interface RegistrationData {
-    val email: String
+    fun email(): Email
 }

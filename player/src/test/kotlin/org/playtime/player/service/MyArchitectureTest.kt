@@ -3,7 +3,6 @@ package org.playtime.player.service
 import com.tngtech.archunit.core.importer.ClassFileImporter
 import com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes
 import org.junit.jupiter.api.Test
-import org.springframework.stereotype.Service
 
 class MyArchitectureTest {
 

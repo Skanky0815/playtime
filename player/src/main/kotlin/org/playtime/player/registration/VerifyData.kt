@@ -1,6 +1,8 @@
 package org.playtime.player.registration
 
+import org.playtime.player.player.Id
+
 interface VerifyData {
-    val id: String
-    val hash: String
+    fun id(): Id
+    fun hash(): String
 }
