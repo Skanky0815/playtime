@@ -26,6 +26,7 @@ dependencies {
     implementation 'com.fasterxml.jackson.module:jackson-module-kotlin:2.13.0'
     implementation project(':player')
     implementation project(':sharedkernel')
+    implementation 'org.keycloak:keycloak-spring-boot-starter:15.0.2'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
