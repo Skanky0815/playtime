@@ -1,6 +1,8 @@
 .DS_Store
 .idea
 
+**/src/main/resources/*-local.properties
+
 .gradle
 **/build/
 !src/**/build/
