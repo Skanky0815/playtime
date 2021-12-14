@@ -8,20 +8,17 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
 @Configuration
-open class PlayerBeanConfiguration {
+open class PlayerConfig {
 
     @Bean
     open fun playerFactory(): Factory = Factory()
 
     @Bean
-    open fun registration(players: Players, factory: Factory): Registration = Registration(
-        players = players,
-        playerFactory = factory,
-    )
+    open fun registration(players: Players, factory: Factory): Registration = Registration(players, factory)
 
     @Bean
-    open fun playerAdministration(players: Players, registration: Registration): PlayerAdministration = PlayerAdministration(
-        players = players,
-        registration = registration,
-    )
+    open fun playerAdministration(
+        players: Players,
+        registration: Registration
+    ): PlayerAdministration = PlayerAdministration(players, registration)
 }
