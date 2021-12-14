@@ -4,17 +4,29 @@ plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.6.0'
 }
 
-group 'org.example'
+group 'org.playtime'
 version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
 }
 
+
+dependencyManagement {
+    imports {
+        mavenBom org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES
+    }
+}
+
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation 'org.springframework.boot:spring-boot-starter:2.5.6'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.5.6'
+    implementation 'com.fasterxml.jackson.module:jackson-module-kotlin:2.13.0'
     implementation project(':player')
+    implementation project(':sharedkernel')
+    implementation 'org.keycloak:keycloak-spring-boot-starter:15.0.2'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 

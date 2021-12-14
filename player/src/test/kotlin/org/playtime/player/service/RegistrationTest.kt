@@ -1,44 +1,33 @@
 package org.playtime.player.service
 
+import org.junit.jupiter.api.*
 import org.junit.jupiter.api.Assertions.*
-import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Test
-import org.playtime.player.exception.PlayerExistsException
-import org.playtime.player.model.Player
-import org.playtime.player.repository.PlayerRepository
-import org.playtime.player.service.registration.Registration
-import org.playtime.player.service.registration.RegistrationData
+import org.mockito.Mockito.*
+import org.playtime.player.player.Email
+import org.playtime.player.player.Factory
+import org.playtime.player.player.Players
+import org.playtime.player.registration.Registration
+import org.playtime.player.registration.RegistrationData
 
 class RegistrationTest {
-    private lateinit var playerRepository: PlayerRepository;
+    private lateinit var players: Players
 
-    @BeforeEach fun reset() {
-        playerRepository = PlayerRepository()
+    @BeforeEach
+    fun reset() {
+        players = mock(Players::class.java)
     }
 
-    @Test fun `registerNewPlayer should create a new Player Model with the given Data and store them via Repository`() {
-        val data = object: RegistrationData {
-            override val email: String = "test@mail.dee"
+    @Test
+    fun `new should create a new Player Model with the given Data and store them via Repository`() {
+        val data = object : RegistrationData {
+            override fun email(): Email = Email("test@mail.dee")
         }
 
-        val registration = Registration(playerRepository)
-        val player = registration.registerNewPlayer(data)
+        val registration = Registration(players, Factory())
+        val player = registration.new(data)
 
-        assertEquals("test@mail.dee", player.email)
+        assertEquals("test@mail.dee", player.email.toString())
+        verify(players).add(player)
     }
 
-    @Test fun `registerNewPlayer should throw an exception if the user already known`() {
-        playerRepository.save(Player(email = "test@mail.dee"))
-
-        val exception = assertThrows(PlayerExistsException::class.java, fun () {
-            val data = object: RegistrationData {
-                override val email: String = "test@mail.dee"
-            }
-
-            val registration = Registration(playerRepository)
-            registration.registerNewPlayer(data)
-        })
-
-        assertEquals("Player with mail address test@mail.dee exists", exception.message)
-    }
 }
