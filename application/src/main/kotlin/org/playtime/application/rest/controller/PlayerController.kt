@@ -1,14 +1,15 @@
 package org.playtime.application.rest.controller
 
 import org.playtime.application.rest.response.Player
-import org.playtime.player.PlayerAdministration
+import org.playtime.player.player.Players
 import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/api/player")
 class PlayerController(
-    private val playerService: PlayerAdministration
+    private val players: Players,
 ) {
+
     @GetMapping
-    fun index(): List<Player> = Player.from(playerService.allPlayers())
+    fun index(): List<Player> = Player.from(players.all())
 }

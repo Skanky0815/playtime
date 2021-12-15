@@ -1,6 +1,5 @@
 package org.playtime.application.repository
 
-import org.playtime.player.player.Email
 import org.playtime.player.player.Id
 import org.playtime.player.player.Player
 import org.playtime.player.player.Players
@@ -14,8 +13,6 @@ class PlayerRepository: Players {
     override fun add(player: Player) {
         playerMap[player.id] = player
     }
-
-    override fun emailExists(email: Email): Boolean = playerMap.filter { entry -> entry.value.email.equals(email) }.isNotEmpty()
 
     override fun withId(playerId: Id): Player = playerMap[playerId]!!
 
