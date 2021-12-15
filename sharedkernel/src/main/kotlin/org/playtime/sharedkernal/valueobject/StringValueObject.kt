@@ -1,4 +1,4 @@
-package org.player.sharedkernal.valueobject
+package org.playtime.sharedkernal.valueobject
 
 abstract class StringValueObject : ValueObject {
 

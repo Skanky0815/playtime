@@ -19,7 +19,8 @@ Beim Lösungsentwurf waren zu Beginn verschiedene Randbedingungen zu beachten, s
 | Testwerkzeuge und -prozesse | JUnit im Annotationsstil sowohl für inhaltliche Richtigkeit als auch für Integrationstests und die Einhaltung von Effizienzvorgaben |
 
 ## 2.3 Konventionen
-| Randbedingung | Erläuterungen, Hintergrund |
-|---------------|----------------------------|
-| Sprache | Der Code wird komplett in Englisch verfasst |
+| Randbedingung     | Erläuterungen, Hintergrund                                                                                                   |
+|-------------------|------------------------------------------------------------------------------------------------------------------------------|
+| Sprache           | Der Code wird komplett in Englisch verfasst                                                                                  |
 | Coding conventions | Der Code wird nach den Code conventions von [kotlinlang.org](https://kotlinlang.org/docs/coding-conventions.html) formatiert |
+| DDD               | Das Projekt wird frei nach DDD umgesetzt. Einzelne Domänen bekommen ein eigenes Modul                                        |

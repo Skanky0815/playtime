@@ -19,7 +19,7 @@ Die Spieler haben über PlayTime die Möglichkeit sich zu Spielgruppen zu finden
 
 ## DevSetup
 
-1. Docker mit Keycloak starten `$ docker compose up -d`
+1. Docker starten `$ docker compose up -d`
 2. Realm und Admin Client im [Keycloak](http://localhost:8081/auth/admin/master/console) einrichten.
 
 ### Anforderungen

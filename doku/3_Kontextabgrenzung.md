@@ -9,3 +9,6 @@ Der Admin kann Spieler freischalten und aus dem System entfernen
 
 ### Spieler
 Benutzten das System um Spieleabende zu organisieren.
+
+### Keycloak
+Die Zugangsdaten sowie die Rollen und Rechte der Spieler werden in Keycloak verwaltet. Dabei wird Keycloak über eine API integriert.
