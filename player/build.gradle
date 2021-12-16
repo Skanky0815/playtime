@@ -1,3 +1,7 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm'
+}
+
 group 'org.playtime'
 version '1.0-SNAPSHOT'
 
@@ -6,7 +10,6 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.0'
     implementation 'org.jetbrains.kotlin:kotlin-reflect:1.6.0'
     implementation project(':sharedkernel')
     testImplementation 'junit:junit:4.13.2'
