@@ -3,6 +3,8 @@ package org.playtime.application.config
 import org.keycloak.OAuth2Constants
 import org.keycloak.admin.client.Keycloak
 import org.keycloak.admin.client.KeycloakBuilder
+import org.keycloak.admin.client.resource.UsersResource
+import org.keycloak.admin.client.resource.RolesResource
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -26,4 +28,10 @@ open class KeycloakClientConfig(
         .clientId(clientId)
         .clientSecret(secretKey)
         .build()
+
+    @Bean
+    open fun usersResource(keycloak: Keycloak): UsersResource = keycloak.realm(realm).users()
+
+    @Bean
+    open fun rolesResource(keycloak: Keycloak): RolesResource = keycloak.realm(realm).roles()
 }

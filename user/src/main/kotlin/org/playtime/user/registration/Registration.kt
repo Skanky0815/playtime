@@ -16,7 +16,11 @@ class Registration(
            throw UserExistsException(registrationData.email())
         }
 
-        val user = factory.from(identityAccessManager.createUser(registrationData.email()), registrationData.email())
+        val user = factory.from(
+            identityAccessManager.createUser(registrationData.email(), registrationData.username()),
+            registrationData.username(),
+            registrationData.email(),
+        )
         users.add(user)
 
         return user

@@ -1,8 +1,8 @@
 package org.playtime.application.config
 
+import org.playtime.infrastructur.iam.IdentityAccessManagement
 import org.playtime.user.UserService
 import org.playtime.user.registration.Registration
-import org.playtime.user.service.IdentityAccessManager
 import org.playtime.user.user.Factory
 import org.playtime.user.user.Users
 import org.springframework.context.annotation.Bean
@@ -15,7 +15,7 @@ open class UserConfig {
 
     @Bean
     open fun registration(
-        identityAccessManager: IdentityAccessManager,
+        identityAccessManager: IdentityAccessManagement,
         factory: Factory,
         users: Users,
     ): Registration = Registration(

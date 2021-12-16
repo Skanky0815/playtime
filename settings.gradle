@@ -5,4 +5,5 @@ include 'appointment'
 include 'application'
 include 'sharedkernel'
 include 'user'
+include 'infrastructure'
 
