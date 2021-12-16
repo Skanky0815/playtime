@@ -30,6 +30,11 @@ dependencies {
     implementation 'org.keycloak:keycloak-admin-client:15.0.2'
 
     testImplementation(libs.bundles.junit)
+    testImplementation(libs.bundles.mockito)
+}
+
+test {
+    useJUnitPlatform()
 }
 
 bootJar {

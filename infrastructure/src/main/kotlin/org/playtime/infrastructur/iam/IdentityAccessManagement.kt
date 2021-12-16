@@ -25,7 +25,7 @@ class IdentityAccessManagement(
         val response = usersResource.create(userRepresentationFactory.create(email, username))
 
         if (HttpURLConnection.HTTP_CREATED == response.status) {
-            return usersResource.search(email.toString(), 0, 1)[0]!!.id
+            return usersResource.search(username.toString())[0]!!.id
         }
 
         throw Exception(response.toString())
