@@ -1,3 +1,5 @@
+enableFeaturePreview('VERSION_CATALOGS')
+
 rootProject.name = 'playtime'
 
 include 'player'
@@ -7,3 +9,18 @@ include 'sharedkernel'
 include 'user'
 include 'infrastructure'
 
+dependencyResolutionManagement {
+    versionCatalogs {
+        libs {
+            version('mockito', '4.1.0')
+
+            alias('junit-core').to('junit:junit:4.13.2')
+            alias('junit-jupiter').to('org.junit.jupiter:junit-jupiter:5.8.2')
+            alias('mockito-core').to('org.mockito', 'mockito-core').versionRef('mockito')
+            alias('mockito-inline').to('org.mockito', 'mockito-inline').versionRef('mockito')
+
+            bundle('junit', ['junit-core', 'junit-jupiter'])
+            bundle('mockito', ['mockito-core', 'mockito-inline'])
+        }
+    }
+}

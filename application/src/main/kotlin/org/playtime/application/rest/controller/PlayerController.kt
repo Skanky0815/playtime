@@ -11,5 +11,5 @@ class PlayerController(
 ) {
 
     @GetMapping
-    fun index(): List<Player> = Player.from(players.all())
+    fun index() = Player.from(players.all())
 }

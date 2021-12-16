@@ -4,5 +4,5 @@ abstract class StringValueObject : ValueObject {
 
     abstract val value: String
 
-    final override fun toString(): String = value
+    final override fun toString() = value
 }

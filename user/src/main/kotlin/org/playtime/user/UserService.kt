@@ -19,5 +19,5 @@ class UserService(
         registration.verify(verifyData)
     }
 
-    fun findAll(): List<User> = users.all()
+    fun findAll() = users.all()
 }

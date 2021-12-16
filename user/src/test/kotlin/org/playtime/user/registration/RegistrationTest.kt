@@ -7,7 +7,6 @@ import org.mockito.Mockito.*
 import org.playtime.user.exception.UserExistsException
 import org.playtime.user.service.IdentityAccessManager
 import org.playtime.user.user.*
-import java.util.*
 
 internal class RegistrationTest {
 
@@ -21,7 +20,6 @@ internal class RegistrationTest {
         override fun email(): Email = mail
     }
 
-
     @BeforeEach
     fun reset() {
         users = mock(Users::class.java)
@@ -30,14 +28,16 @@ internal class RegistrationTest {
 
     @Test
     fun `new should create a new Player Model with the given Data and store them via Repository`() {
-        `when`(identityAccessManager.createUser(mail, username)).thenReturn("06bf1cc2-83f2-46f8-bc13-a6a201f99b3e")
+        val id = "06bf1cc2-83f2-46f8-bc13-a6a201f99b3e"
+
+        `when`(identityAccessManager.createUser(mail, username)).thenReturn(id)
         `when`(users.emailExists(mail)).thenReturn(false)
 
         val use = service().new(registrationData)
 
         assertEquals(mail, use.email)
         assertEquals(username, use.username)
-        assertEquals("06bf1cc2-83f2-46f8-bc13-a6a201f99b3e", use.id.toString())
+        assertEquals(id, use.id.toString())
         verify(users).add(use)
     }
 
@@ -54,7 +54,7 @@ internal class RegistrationTest {
 
     @Test
     fun `verify should verify and activate the user`() {
-        val id = Id(UUID.randomUUID())
+        val id = Id.random()
         val password = Password("password")
 
         val verifyData = object : VerifyData {
@@ -73,5 +73,5 @@ internal class RegistrationTest {
         verify(identityAccessManager).activate(id, password)
     }
 
-    private fun service(): Registration = Registration(identityAccessManager, Factory(), users)
+    private fun service() = Registration(identityAccessManager, Factory(), users)
 }

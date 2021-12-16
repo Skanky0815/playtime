@@ -15,9 +15,9 @@ class UserRepository : Users {
         userMap[user.id] = user
     }
 
-    override fun with(id: Id): User = userMap[id]!!
+    override fun with(id: Id) = userMap[id]!!
 
-    override fun all(): List<User> = userMap.toList().map { pair -> pair.second }
+    override fun all() = userMap.toList().map { pair -> pair.second }
 
-    override fun emailExists(email: Email): Boolean = userMap.filter { entry -> entry.value.email == email }.isNotEmpty()
+    override fun emailExists(email: Email) = userMap.filter { entry -> entry.value.email == email }.isNotEmpty()
 }

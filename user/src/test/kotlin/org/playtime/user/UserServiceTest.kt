@@ -48,5 +48,5 @@ internal class UserServiceTest {
         assertEquals(list, service().findAll())
     }
 
-    private fun service(): UserService = UserService(registration, users)
+    private fun service() = UserService(registration, users)
 }

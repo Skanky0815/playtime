@@ -10,14 +10,7 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'junit:junit:4.13.2'
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
-    testImplementation 'com.tngtech.archunit:archunit:0.22.0'
-    testImplementation 'org.mockito:mockito-core:4.0.0'
-}
-
-test {
-    useJUnitPlatform()
+    testImplementation(libs.bundles.junit)
 }
 
 jar {

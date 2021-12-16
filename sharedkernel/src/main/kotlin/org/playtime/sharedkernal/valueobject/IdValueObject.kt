@@ -5,5 +5,5 @@ import java.util.*
 abstract class IdValueObject : ValueObject {
     abstract val value: UUID
 
-    final override fun toString(): String = value.toString()
+    final override fun toString() = value.toString()
 }

@@ -8,12 +8,12 @@ data class User(
     val verifiedAt: String,
 ) {
     companion object {
-        fun from(user: UserEntity): User = User(
+        fun from(user: UserEntity) = User(
             user.id.toString(),
             user.email.toString(),
             user.verifiedAt.toString(),
         )
 
-        fun from(userList: List<UserEntity>): List<User> = userList.map { user -> from(user) }
+        fun from(userList: List<UserEntity>) = userList.map { user -> from(user) }
     }
 }

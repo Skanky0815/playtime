@@ -7,10 +7,12 @@ internal class StringValueObjectTest {
 
     @Test
     fun testToString() {
-        val string = object : StringValueObject() {
-            override val value: String = "my string"
+        val string = "my string"
+
+        val stringValueObject = object : StringValueObject() {
+            override val value = string
         }
 
-        assertEquals("my string", string.toString())
+        assertEquals(string, stringValueObject.toString())
     }
 }

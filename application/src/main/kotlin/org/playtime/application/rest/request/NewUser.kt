@@ -8,7 +8,7 @@ data class NewUser(
     val email: String,
     val username: String,
 ) : RegistrationData {
-    override fun username(): Username = Username(username)
+    override fun username() = Username(username)
 
-    override fun email(): Email = Email(email)
+    override fun email() = Email(email)
 }

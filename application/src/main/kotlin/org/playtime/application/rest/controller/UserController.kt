@@ -10,5 +10,5 @@ class UserController(
     private val userService: UserService
 ) {
     @GetMapping
-    fun index(): List<User> = User.from(userService.findAll())
+    fun index() = User.from(userService.findAll())
 }

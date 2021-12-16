@@ -9,7 +9,7 @@ internal class DateTimeValueObjectTest {
     @Test
     fun testToString() {
         val dateTime = object : DateTimeValueObject() {
-            override val value: LocalDateTime = LocalDateTime.of(2020, 1, 1, 12, 30)
+            override val value = LocalDateTime.of(2020, 1, 1, 12, 30)
         }
 
         assertEquals("2020-01-01T12:30", dateTime.toString())

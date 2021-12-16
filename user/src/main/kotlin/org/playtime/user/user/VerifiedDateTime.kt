@@ -5,6 +5,6 @@ import java.time.LocalDateTime
 
 data class VerifiedDateTime(override val value: LocalDateTime): DateTimeValueObject() {
     companion object {
-        fun now(): VerifiedDateTime = VerifiedDateTime(LocalDateTime.now())
+        fun now() = VerifiedDateTime(LocalDateTime.now())
     }
 }

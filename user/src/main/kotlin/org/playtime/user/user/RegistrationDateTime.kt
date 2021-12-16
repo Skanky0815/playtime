@@ -5,6 +5,6 @@ import java.time.LocalDateTime
 
 data class RegistrationDateTime(override val value: LocalDateTime): DateTimeValueObject() {
     companion object {
-        fun now(): RegistrationDateTime = RegistrationDateTime(LocalDateTime.now())
+        fun now() = RegistrationDateTime(LocalDateTime.now())
     }
 }
