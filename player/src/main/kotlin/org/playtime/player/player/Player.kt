@@ -6,6 +6,7 @@ import java.time.LocalDateTime
 data class Player(
     val id: Id,
     val email: Email,
+    val userId: UserId,
 ) {
     private var verified: Verified = Verified(true)
 
@@ -17,7 +18,7 @@ data class Player(
 
     lateinit var verifiedAt: LocalDateTime
 
-    lateinit var iamSubjectIdentifier: IamSubjectIdentifier
+    lateinit var iamSubjectIdentifier: UserId
 
     private val friends: Friends = Friends(id)
 
