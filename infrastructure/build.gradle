@@ -3,7 +3,6 @@ import org.springframework.boot.gradle.plugin.SpringBootPlugin
 plugins {
     id 'org.springframework.boot' version '2.5.2'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-    id 'org.jetbrains.kotlin.jvm' version '1.6.0'
 }
 
 group 'org.playtime'
