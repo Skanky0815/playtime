@@ -1,4 +1,6 @@
-apply plugin: 'org.jetbrains.kotlin.jvm'
+plugins {
+    id 'org.jetbrains.kotlin.jvm'
+}
 
 group 'org.playtime'
 version '1.0-SNAPSHOT'
