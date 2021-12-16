@@ -24,7 +24,3 @@ jobs:
           arguments: build
       - name: Run Tests
         run: ./gradlew test
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@v1.6
-        with:
-          projectBaseDir: ./
