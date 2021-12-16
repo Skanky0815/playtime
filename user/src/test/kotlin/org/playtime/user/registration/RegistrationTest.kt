@@ -14,6 +14,8 @@ internal class RegistrationTest {
     private lateinit var users: Users
     private lateinit var identityAccessManager: IdentityAccessManager
 
+    private val mail = "test@mail.dee"
+
     @BeforeEach
     fun reset() {
         users = mock(Users::class.java)
@@ -23,7 +25,7 @@ internal class RegistrationTest {
     @Test
     fun `new should create a new Player Model with the given Data and store them via Repository`() {
         val data = object : RegistrationData {
-            override fun email(): Email = Email("test@mail.dee")
+            override fun email(): Email = Email(mail)
         }
 
         `when`(identityAccessManager.createUser(data.email())).thenReturn("06bf1cc2-83f2-46f8-bc13-a6a201f99b3e")
@@ -31,7 +33,7 @@ internal class RegistrationTest {
 
         val use = service().new(data)
 
-        assertEquals("test@mail.dee", use.email.toString())
+        assertEquals(mail, use.email.toString())
         assertEquals("06bf1cc2-83f2-46f8-bc13-a6a201f99b3e", use.id.toString())
         verify(users).add(use)
     }
@@ -39,7 +41,7 @@ internal class RegistrationTest {
     @Test
     fun `new should throw an exception if email is already known`() {
         val data = object : RegistrationData {
-            override fun email(): Email = Email("test@mail.dee")
+            override fun email(): Email = Email(mail)
         }
 
         `when`(users.emailExists(data.email())).thenReturn(true)
@@ -48,7 +50,7 @@ internal class RegistrationTest {
             service().new(data)
         }
 
-        assertEquals("Player with mail address test@mail.dee exists.", exception.message)
+        assertEquals("Player with mail address %s exists.".format(mail), exception.message)
     }
 
     @Test
