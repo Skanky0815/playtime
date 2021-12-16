@@ -14,7 +14,13 @@ internal class RegistrationTest {
     private lateinit var users: Users
     private lateinit var identityAccessManager: IdentityAccessManager
 
-    private val mail = "test@mail.dee"
+    private val mail = Email("test@mail.dee")
+    private val username = Username("woop")
+    private val registrationData = object : RegistrationData {
+        override fun username(): Username = username
+        override fun email(): Email = mail
+    }
+
 
     @BeforeEach
     fun reset() {
@@ -24,30 +30,23 @@ internal class RegistrationTest {
 
     @Test
     fun `new should create a new Player Model with the given Data and store them via Repository`() {
-        val data = object : RegistrationData {
-            override fun email(): Email = Email(mail)
-        }
+        `when`(identityAccessManager.createUser(mail, username)).thenReturn("06bf1cc2-83f2-46f8-bc13-a6a201f99b3e")
+        `when`(users.emailExists(mail)).thenReturn(false)
 
-        `when`(identityAccessManager.createUser(data.email())).thenReturn("06bf1cc2-83f2-46f8-bc13-a6a201f99b3e")
-        `when`(users.emailExists(data.email())).thenReturn(false)
+        val use = service().new(registrationData)
 
-        val use = service().new(data)
-
-        assertEquals(mail, use.email.toString())
+        assertEquals(mail, use.email)
+        assertEquals(username, use.username)
         assertEquals("06bf1cc2-83f2-46f8-bc13-a6a201f99b3e", use.id.toString())
         verify(users).add(use)
     }
 
     @Test
     fun `new should throw an exception if email is already known`() {
-        val data = object : RegistrationData {
-            override fun email(): Email = Email(mail)
-        }
-
-        `when`(users.emailExists(data.email())).thenReturn(true)
+        `when`(users.emailExists(mail)).thenReturn(true)
 
         val exception = assertThrows(UserExistsException::class.java) {
-            service().new(data)
+            service().new(registrationData)
         }
 
         assertEquals("Player with mail address %s exists.".format(mail), exception.message)
@@ -64,7 +63,7 @@ internal class RegistrationTest {
             override fun password(): Password = password
         }
 
-        val user = User(id, Email("email"), RegistrationDateTime.now())
+        val user = User(id, Email("email"), Username("woop"), RegistrationDateTime.now())
 
         `when`(users.with(id)).thenReturn(user)
 
