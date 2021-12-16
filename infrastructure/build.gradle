@@ -1,9 +1,10 @@
 import org.springframework.boot.gradle.plugin.SpringBootPlugin
 
+apply plugin: 'org.jetbrains.kotlin.jvm'
+
 plugins {
     id 'org.springframework.boot' version '2.5.2'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-    id 'org.jetbrains.kotlin.jvm'
 }
 
 group 'org.playtime'
