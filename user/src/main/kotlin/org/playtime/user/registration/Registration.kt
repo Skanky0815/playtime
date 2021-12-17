@@ -29,7 +29,9 @@ class Registration(
     fun verify(verifyData: VerifyData) {
         val user = users.with(verifyData.id())
 
-        identityAccessManager.activate(user.id, verifyData.password())
+        identityAccessManager.activate(user.iamId, verifyData.password())
         user.verify()
+
+        users.update(user)
     }
 }

@@ -6,13 +6,32 @@ plugins {
 group 'org.playtime'
 version '1.0-SNAPSHOT'
 
+repositories {
+    mavenCentral()
+}
+
 dependencies {
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
     implementation 'org.jetbrains.kotlin:kotlin-reflect:1.6.10-RC'
 }
 
-repositories {
-    mavenCentral()
+subprojects {
+    group 'org.playtime'
+    version '1.0-SNAPSHOT'
+
+    apply plugin: 'org.jetbrains.kotlin.jvm'
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        testImplementation(libs.bundles.junit)
+    }
+
+    test {
+        useJUnitPlatform()
+    }
 }
 
 test {

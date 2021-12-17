@@ -11,10 +11,7 @@ import org.keycloak.representations.idm.UserRepresentation
 import org.mockito.Mockito.*
 import org.playtime.infrastructure.iam.factory.PasswordRepresentationFactory
 import org.playtime.infrastructure.iam.factory.UserRepresentationFactory
-import org.playtime.user.user.Email
-import org.playtime.user.user.Id
-import org.playtime.user.user.Password
-import org.playtime.user.user.Username
+import org.playtime.user.user.*
 import javax.ws.rs.core.Response
 
 internal class IdentityAccessManagementTest {
@@ -88,7 +85,7 @@ internal class IdentityAccessManagementTest {
         `when`(rolesResource.get("PLAYER")).thenReturn(roleResource)
         `when`(usersResource.get(id)).thenReturn(userResource)
 
-        service().activate(Id.fromString(id), Password(password))
+        service().activate(IamId.fromString(id), Password(password))
 
         verify(roleScopesResource).add(listOf(roleRepresentation))
         verify(userResource).resetPassword(credentialRepresentation)

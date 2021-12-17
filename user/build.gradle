@@ -1,21 +1,9 @@
-plugins {
-    id 'org.jetbrains.kotlin.jvm'
-}
-
-group 'org.playtime'
-version '1.0-SNAPSHOT'
-
-repositories {
-    mavenCentral()
-}
-
 dependencies {
     implementation project(':sharedkernel')
 
-    testImplementation(libs.bundles.junit)
     testImplementation(libs.bundles.mockito)
 }
 
-test {
-    useJUnitPlatform()
+jar {
+    enabled = true
 }

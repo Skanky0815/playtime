@@ -1,15 +1,7 @@
 plugins {
     id 'org.springframework.boot' version '2.6.1'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-    id 'org.jetbrains.kotlin.jvm'
     id 'application'
-}
-
-group 'org.playtime'
-version '1.0-SNAPSHOT'
-
-repositories {
-    mavenCentral()
 }
 
 application {

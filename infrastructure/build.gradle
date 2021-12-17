@@ -1,17 +1,10 @@
 import org.springframework.boot.gradle.plugin.SpringBootPlugin
 
 plugins {
-    id 'org.jetbrains.kotlin.jvm'
     id 'org.springframework.boot' version '2.6.1'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 }
 
-group 'org.playtime'
-version '1.0-SNAPSHOT'
-
-repositories {
-    mavenCentral()
-}
 
 dependencyManagement {
     imports {
@@ -30,12 +23,7 @@ dependencies {
     implementation 'org.keycloak:keycloak-spring-boot-starter:15.0.2'
     implementation 'org.keycloak:keycloak-admin-client:15.0.2'
 
-    testImplementation(libs.bundles.junit)
     testImplementation(libs.bundles.mockito)
-}
-
-test {
-    useJUnitPlatform()
 }
 
 bootJar {

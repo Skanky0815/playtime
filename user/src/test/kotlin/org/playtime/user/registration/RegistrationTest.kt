@@ -28,17 +28,17 @@ internal class RegistrationTest {
 
     @Test
     fun `new should create a new Player Model with the given Data and store them via Repository`() {
-        val id = "06bf1cc2-83f2-46f8-bc13-a6a201f99b3e"
+        val iamId = "06bf1cc2-83f2-46f8-bc13-a6a201f99b3e"
 
-        `when`(identityAccessManager.createUser(mail, username)).thenReturn(id)
+        `when`(identityAccessManager.createUser(mail, username)).thenReturn(iamId)
         `when`(users.emailExists(mail)).thenReturn(false)
 
-        val use = service().new(registrationData)
+        val user = service().new(registrationData)
 
-        assertEquals(mail, use.email)
-        assertEquals(username, use.username)
-        assertEquals(id, use.id.toString())
-        verify(users).add(use)
+        assertEquals(mail, user.email)
+        assertEquals(username, user.username)
+        assertEquals(iamId, user.iamId.toString())
+        verify(users).add(user)
     }
 
     @Test
@@ -56,6 +56,7 @@ internal class RegistrationTest {
     fun `verify should verify and activate the user`() {
         val id = Id.random()
         val password = Password("password")
+        val iamId = IamId.fromString("c6b0db48-4ecb-421a-b6b4-ad59be8815cf")
 
         val verifyData = object : VerifyData {
             override fun id(): Id = id
@@ -63,14 +64,14 @@ internal class RegistrationTest {
             override fun password(): Password = password
         }
 
-        val user = User(id, Email("email"), Username("woop"), RegistrationDateTime.now())
+        val user = User(id, iamId, Email("email"), Username("woop"), RegistrationDateTime.now())
 
         `when`(users.with(id)).thenReturn(user)
 
         service().verify(verifyData)
 
         assertNotNull(user.verifiedAt)
-        verify(identityAccessManager).activate(id, password)
+        verify(identityAccessManager).activate(iamId, password)
     }
 
     private fun service() = Registration(identityAccessManager, Factory(), users)

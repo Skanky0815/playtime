@@ -5,10 +5,7 @@ import org.keycloak.admin.client.resource.UsersResource
 import org.playtime.infrastructure.iam.factory.PasswordRepresentationFactory
 import org.playtime.infrastructure.iam.factory.UserRepresentationFactory
 import org.playtime.user.service.IdentityAccessManager
-import org.playtime.user.user.Email
-import org.playtime.user.user.Id
-import org.playtime.user.user.Password
-import org.playtime.user.user.Username
+import org.playtime.user.user.*
 import org.springframework.stereotype.Service
 import java.net.HttpURLConnection
 
@@ -31,9 +28,9 @@ class IdentityAccessManagement(
         throw Exception(response.toString())
     }
 
-    override fun activate(id: Id, password: Password) {
+    override fun activate(iamId: IamId, password: Password) {
         val role = rolesResource.get(Role.PLAYER.toString()).toRepresentation()
-        val user = usersResource.get(id.toString())
+        val user = usersResource.get(iamId.toString())
 
         user.roles().realmLevel().add(listOf(role))
         user.resetPassword(passwordRepresentationFactory.create(password))

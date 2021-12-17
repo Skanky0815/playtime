@@ -2,9 +2,9 @@ package org.playtime.user.user
 
 class Factory {
     fun from(id: String, username: Username, email: Email): User = User(
-        Id.fromString(id),
-        email,
-        username,
-        RegistrationDateTime.now(),
+        iamId = IamId.fromString(id),
+        email = email,
+        username = username,
+        registeredAt = RegistrationDateTime.now(),
     )
 }
