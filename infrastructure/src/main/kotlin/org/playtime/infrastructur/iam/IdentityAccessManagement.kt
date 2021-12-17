@@ -32,7 +32,7 @@ class IdentityAccessManagement(
     }
 
     override fun activate(id: Id, password: Password) {
-        val role = rolesResource.get("PLAYER").toRepresentation()
+        val role = rolesResource.get(Role.PLAYER.toString()).toRepresentation()
         val user = usersResource.get(id.toString())
 
         user.roles().realmLevel().add(listOf(role))
