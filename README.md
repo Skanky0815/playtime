@@ -2,12 +2,12 @@
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Skanky0815_playtime&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Skanky0815_playtime)
 
-
-PlayTime ist eine Community Platform für Pen&Paper, Tabletop und Boardgames Spieler.
-Die Spieler haben über PlayTime die Möglichkeit sich zu Spielgruppen zu finden und Spielesessions zu planen.
+PlayTime ist eine Community Platform für Pen&Paper, Tabletop und Boardgames Spieler. Die Spieler haben über PlayTime die
+Möglichkeit sich zu Spielgruppen zu finden und Spielesessions zu planen.
 
 ## Architektur
-1. [Einführung und Ziele](doku/1_Einfuehrung_Ziele.md) 
+
+1. [Einführung und Ziele](doku/1_Einfuehrung_Ziele.md)
 2. [Randbedingung](doku/2_Randbedingung.md)
 3. [Kontextabgrenzung](doku/3_Kontextabgrenzung.md)
 4. [Lösungsstrategie](doku/4_Loesungsstrategie.md)
@@ -26,6 +26,7 @@ Die Spieler haben über PlayTime die Möglichkeit sich zu Spielgruppen zu finden
 2. Realm und Admin Client im [Keycloak](http://localhost:8081/auth/admin/master/console) einrichten.
 
 ### Anforderungen
+
 - Docker
 - JDK
 

@@ -13,7 +13,7 @@ class Registration(
 ) {
     fun new(registrationData: RegistrationData): User {
         if (users.emailExists(registrationData.email())) {
-           throw UserExistsException(registrationData.email())
+            throw UserExistsException(registrationData.email())
         }
 
         val user = factory.from(

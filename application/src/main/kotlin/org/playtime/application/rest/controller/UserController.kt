@@ -1,8 +1,10 @@
 package org.playtime.application.rest.controller
 
-import org.playtime.user.UserService
 import org.playtime.application.rest.response.User
-import org.springframework.web.bind.annotation.*
+import org.playtime.user.UserService
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/api/user")

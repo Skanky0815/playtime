@@ -8,5 +8,5 @@ import org.springframework.context.annotation.Configuration
 open class PlayerConfig {
 
     @Bean
-    open fun playerFactory(): Factory = Factory()
+    open fun playerFactory() = Factory()
 }

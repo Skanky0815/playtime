@@ -1,6 +1,7 @@
 # 5. Bausteinsicht
-Dieser Abschnitt beschreibt die Zerlegung von PlayTime in Module, wie sie sich auch in der Paketstruktur des Java-Quelltextes widerspiegelt.
 
+Dieser Abschnitt beschreibt die Zerlegung von PlayTime in Module, wie sie sich auch in der Paketstruktur des
+Java-Quelltextes widerspiegelt.
 
 ![](bausteinsicht.drawio.png)
 

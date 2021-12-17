@@ -17,7 +17,7 @@ Das Projekt PlayTime soll implementiert werden, dazu stehen diverse Programmiers
 
 ## Decision Outcome
 
-Gewählte Option: "Kotlin", weil Kotlin stark typisiert ist und überflüssigen Boilerplate Code vermeidet. 
+Gewählte Option: "Kotlin", weil Kotlin stark typisiert ist und überflüssigen Boilerplate Code vermeidet.
 
 ### Positive Consequences
 

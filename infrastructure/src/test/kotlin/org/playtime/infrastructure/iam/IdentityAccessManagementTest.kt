@@ -1,9 +1,9 @@
 package org.playtime.infrastructure.iam
 
-import org.junit.jupiter.api.Test
-
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertThrows
 import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
 import org.keycloak.admin.client.resource.*
 import org.keycloak.representations.idm.CredentialRepresentation
 import org.keycloak.representations.idm.RoleRepresentation
@@ -11,7 +11,10 @@ import org.keycloak.representations.idm.UserRepresentation
 import org.mockito.Mockito.*
 import org.playtime.infrastructure.iam.factory.PasswordRepresentationFactory
 import org.playtime.infrastructure.iam.factory.UserRepresentationFactory
-import org.playtime.user.user.*
+import org.playtime.user.user.Email
+import org.playtime.user.user.IamId
+import org.playtime.user.user.Password
+import org.playtime.user.user.Username
 import javax.ws.rs.core.Response
 
 internal class IdentityAccessManagementTest {

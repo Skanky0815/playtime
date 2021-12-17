@@ -13,6 +13,6 @@ class Friends(
     }
 
     fun accept(friendId: Id) {
-        friends.find { friend -> friend.toPlayerId.equals(friendId) }?.accept()
+        friends.find { friend -> friend.toPlayerId == friendId }?.accept()
     }
 }

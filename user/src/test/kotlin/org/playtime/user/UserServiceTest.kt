@@ -1,6 +1,6 @@
 package org.playtime.user
 
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito.*
@@ -27,7 +27,7 @@ internal class UserServiceTest {
 
         service().create(registrationData)
 
-        verify(registration).new(registrationData);
+        verify(registration).new(registrationData)
     }
 
     @Test

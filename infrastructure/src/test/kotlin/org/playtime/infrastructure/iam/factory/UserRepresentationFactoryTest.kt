@@ -1,8 +1,7 @@
 package org.playtime.infrastructure.iam.factory
 
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-
-import org.junit.jupiter.api.Assertions.*
 import org.playtime.user.user.Email
 import org.playtime.user.user.Username
 

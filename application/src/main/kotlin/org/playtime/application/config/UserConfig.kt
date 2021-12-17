@@ -11,14 +11,14 @@ import org.springframework.context.annotation.Configuration
 @Configuration
 open class UserConfig {
     @Bean
-    open fun userFactory(): Factory = Factory()
+    open fun userFactory() = Factory()
 
     @Bean
     open fun registration(
         identityAccessManager: IdentityAccessManagement,
         factory: Factory,
         users: Users,
-    ): Registration = Registration(
+    ) = Registration(
         identityAccessManager,
         factory,
         users,
@@ -28,7 +28,7 @@ open class UserConfig {
     open fun users(
         registration: Registration,
         users: Users
-    ): UserService = UserService(
+    ) = UserService(
         registration,
         users,
     )

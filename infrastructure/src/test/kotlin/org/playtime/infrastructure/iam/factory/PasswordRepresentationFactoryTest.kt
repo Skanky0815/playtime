@@ -1,6 +1,6 @@
 package org.playtime.infrastructure.iam.factory
 
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import org.playtime.user.user.Password
 
@@ -10,7 +10,7 @@ internal class PasswordRepresentationFactoryTest {
     fun create() {
         val password = "password"
 
-        val passwordRepresentation = service().create(Password(password));
+        val passwordRepresentation = service().create(Password(password))
 
         assertEquals(password, passwordRepresentation.value)
     }

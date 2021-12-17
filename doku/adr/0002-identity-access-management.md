@@ -6,12 +6,13 @@
 
 ## Context and Problem Statement
 
-Die Benutzer von Playtime brauchen zugangsdaten um ihre Daten vor anderen zu schützten. Zudem sollen nicht alle Benutzer alles in dem Portal machen können, dafür wird ein Rollen und Rechte System gebraucht.
+Die Benutzer von Playtime brauchen zugangsdaten um ihre Daten vor anderen zu schützten. Zudem sollen nicht alle Benutzer
+alles in dem Portal machen können, dafür wird ein Rollen und Rechte System gebraucht.
 
 ## Considered Options
 
 * Keycloak
-* eine eigene Implementierung 
+* eine eigene Implementierung
 
 ## Decision Outcome
 

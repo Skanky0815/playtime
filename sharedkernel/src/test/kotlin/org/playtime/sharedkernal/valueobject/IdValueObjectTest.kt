@@ -1,7 +1,7 @@
 package org.playtime.sharedkernal.valueobject
 
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.Assertions.*
 import java.util.*
 
 internal class IdValueObjectTest {

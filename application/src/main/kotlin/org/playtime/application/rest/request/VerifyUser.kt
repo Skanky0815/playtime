@@ -1,7 +1,7 @@
 package org.playtime.application.rest.request
 
-import org.playtime.user.user.Id
 import org.playtime.user.registration.VerifyData
+import org.playtime.user.user.Id
 import org.playtime.user.user.Password
 
 data class VerifyUser(
