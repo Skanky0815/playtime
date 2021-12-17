@@ -1,4 +1,4 @@
-package org.playtime.application.config
+package org.playtime.infrastructure.iam
 
 import org.keycloak.OAuth2Constants
 import org.keycloak.admin.client.Keycloak

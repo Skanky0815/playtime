@@ -1,4 +1,4 @@
-package org.playtime.infrastructur.iam
+package org.playtime.infrastructure.iam
 
 import org.junit.jupiter.api.Test
 
@@ -9,8 +9,8 @@ import org.keycloak.representations.idm.CredentialRepresentation
 import org.keycloak.representations.idm.RoleRepresentation
 import org.keycloak.representations.idm.UserRepresentation
 import org.mockito.Mockito.*
-import org.playtime.infrastructur.iam.factory.PasswordRepresentationFactory
-import org.playtime.infrastructur.iam.factory.UserRepresentationFactory
+import org.playtime.infrastructure.iam.factory.PasswordRepresentationFactory
+import org.playtime.infrastructure.iam.factory.UserRepresentationFactory
 import org.playtime.user.user.Email
 import org.playtime.user.user.Id
 import org.playtime.user.user.Password

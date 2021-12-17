@@ -1,6 +1,6 @@
 package org.playtime.application.config
 
-import org.playtime.infrastructur.iam.IdentityAccessManagement
+import org.playtime.infrastructure.iam.IdentityAccessManagement
 import org.playtime.user.UserService
 import org.playtime.user.registration.Registration
 import org.playtime.user.user.Factory

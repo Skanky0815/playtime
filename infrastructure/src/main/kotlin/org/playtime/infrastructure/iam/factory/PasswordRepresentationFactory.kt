@@ -1,4 +1,4 @@
-package org.playtime.infrastructur.iam.factory
+package org.playtime.infrastructure.iam.factory
 
 import org.keycloak.representations.idm.CredentialRepresentation
 import org.playtime.user.user.Password

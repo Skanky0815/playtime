@@ -1,5 +1,5 @@
 plugins {
-    id 'org.springframework.boot' version '2.5.2'
+    id 'org.springframework.boot' version '2.6.1'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'org.jetbrains.kotlin.jvm'
     id 'application'
@@ -17,9 +17,8 @@ application {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter:2.6.1'
-    implementation 'org.springframework.boot:spring-boot-starter-actuator'
-    implementation 'org.springframework.boot:spring-boot-starter-web:2.6.1'
+    implementation(libs.bundles.spring)
+    implementation(libs.spring.boot.web)
     implementation 'com.fasterxml.jackson.module:jackson-module-kotlin:2.13.0'
 
     implementation project(':player')

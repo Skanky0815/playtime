@@ -1,4 +1,4 @@
-package org.playtime.infrastructur.iam.factory
+package org.playtime.infrastructure.iam.factory
 
 import org.junit.jupiter.api.Test
 

@@ -1,9 +1,9 @@
-package org.playtime.infrastructur.iam
+package org.playtime.infrastructure.iam
 
 import org.keycloak.admin.client.resource.RolesResource
 import org.keycloak.admin.client.resource.UsersResource
-import org.playtime.infrastructur.iam.factory.PasswordRepresentationFactory
-import org.playtime.infrastructur.iam.factory.UserRepresentationFactory
+import org.playtime.infrastructure.iam.factory.PasswordRepresentationFactory
+import org.playtime.infrastructure.iam.factory.UserRepresentationFactory
 import org.playtime.user.service.IdentityAccessManager
 import org.playtime.user.user.Email
 import org.playtime.user.user.Id

@@ -1,4 +1,4 @@
-package org.playtime.infrastructur.iam
+package org.playtime.infrastructure.iam
 
 enum class Role() {
     PLAYER {
