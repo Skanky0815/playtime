@@ -49,7 +49,7 @@ internal class RegistrationTest {
             service().new(registrationData)
         }
 
-        assertEquals("Player with mail address %s exists.".format(mail), exception.message)
+        assertEquals("Player with mail address %s already exists.".format(mail), exception.message)
     }
 
     @Test
