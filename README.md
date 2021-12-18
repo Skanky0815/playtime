@@ -1,6 +1,7 @@
 # PlayTime
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Skanky0815_playtime&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Skanky0815_playtime)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Skanky0815_playtime&metric=coverage)](https://sonarcloud.io/summary/new_code?id=Skanky0815_playtime)
 
 PlayTime ist eine Community Platform für Pen&Paper, Tabletop und Boardgames Spieler. Die Spieler haben über PlayTime die
 Möglichkeit sich zu Spielgruppen zu finden und Spielesessions zu planen.
