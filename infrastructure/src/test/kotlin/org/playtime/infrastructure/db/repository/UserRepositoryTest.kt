@@ -25,7 +25,7 @@ internal class UserRepositoryTest {
     fun add() {
         val user = mock(User::class.java)
 
-        service().update(user)
+        service().add(user)
         verify(mongoUserRepository).save(user)
     }
 
