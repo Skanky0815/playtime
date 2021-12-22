@@ -13,10 +13,14 @@ class Registration(
 ) {
     fun new(registrationData: RegistrationData): User {
         if (users.emailExists(registrationData.email())) {
-           throw UserExistsException(registrationData.email())
+            throw UserExistsException(registrationData.email())
         }
 
-        val user = factory.from(identityAccessManager.createUser(registrationData.email()), registrationData.email())
+        val user = factory.from(
+            identityAccessManager.createUser(registrationData.email(), registrationData.username()),
+            registrationData.username(),
+            registrationData.email(),
+        )
         users.add(user)
 
         return user
@@ -25,7 +29,9 @@ class Registration(
     fun verify(verifyData: VerifyData) {
         val user = users.with(verifyData.id())
 
-        identityAccessManager.activate(user.id, verifyData.password())
+        identityAccessManager.activate(user.iamId, verifyData.password())
         user.verify()
+
+        users.update(user)
     }
 }

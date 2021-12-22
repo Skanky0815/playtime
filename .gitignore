@@ -2,6 +2,7 @@
 .idea
 
 **/src/main/resources/*-local.properties
+**/out/
 
 .gradle
 **/build/

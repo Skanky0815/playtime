@@ -1,16 +1,9 @@
-plugins {
-    id 'org.jetbrains.kotlin.jvm' version '1.5.10'
-}
-
-group 'org.playtime'
-version '1.0-SNAPSHOT'
-
-repositories {
-    mavenCentral()
-}
-
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     implementation project(':sharedkernel')
-    implementation 'org.keycloak:keycloak-admin-client:15.0.2'
+
+    testImplementation(libs.bundles.mockito)
+}
+
+jar {
+    enabled = true
 }

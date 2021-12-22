@@ -1,36 +1,9 @@
-plugins {
-    id 'org.jetbrains.kotlin.jvm' version '1.6.0'
-}
-
-group 'org.playtime'
-version '1.0-SNAPSHOT'
-
-repositories {
-    mavenCentral()
-}
-
 dependencies {
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.0'
-    implementation 'org.jetbrains.kotlin:kotlin-reflect:1.6.0'
     implementation project(':sharedkernel')
-    testImplementation 'junit:junit:4.13.2'
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+
     testImplementation 'com.tngtech.archunit:archunit:0.22.0'
-    testImplementation 'org.mockito:mockito-core:4.0.0'
 }
 
-test {
-    useJUnitPlatform()
-}
-
-compileKotlin {
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
-}
-
-compileTestKotlin {
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
+jar {
+    enabled = true
 }

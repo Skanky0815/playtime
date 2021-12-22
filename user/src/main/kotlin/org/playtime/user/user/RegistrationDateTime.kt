@@ -1,6 +1,10 @@
 package org.playtime.user.user
 
-import org.player.sharedkernal.valueobject.DateTimeValueObject
+import org.playtime.sharedkernal.valueobject.DateTimeValueObject
 import java.time.LocalDateTime
 
-data class RegistrationDateTime(override val value: LocalDateTime): DateTimeValueObject()
+data class RegistrationDateTime(override val value: LocalDateTime) : DateTimeValueObject() {
+    companion object {
+        fun now() = RegistrationDateTime(LocalDateTime.now())
+    }
+}

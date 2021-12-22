@@ -1,12 +1,10 @@
 package org.playtime.user.user
 
-import java.time.LocalDateTime
-import java.util.*
-
 class Factory {
-    fun from(id: String, email: Email): User = User(
-        Id(UUID.fromString(id)),
-        email,
-        RegistrationDateTime(LocalDateTime.now()),
+    fun from(id: String, username: Username, email: Email) = User(
+        iamId = IamId.fromString(id),
+        email = email,
+        username = username,
+        registeredAt = RegistrationDateTime.now(),
     )
 }

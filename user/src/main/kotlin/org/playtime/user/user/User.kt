@@ -1,8 +1,10 @@
 package org.playtime.user.user
 
 data class User(
-    val id: Id,
+    var id: Id = Id.random(),
+    val iamId: IamId,
     val email: Email,
+    val username: Username,
     val registeredAt: RegistrationDateTime,
 ) {
     var verifiedAt: VerifiedDateTime? = null

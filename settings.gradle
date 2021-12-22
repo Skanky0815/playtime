@@ -1,3 +1,5 @@
+enableFeaturePreview('VERSION_CATALOGS')
+
 rootProject.name = 'playtime'
 
 include 'player'
@@ -5,4 +7,28 @@ include 'appointment'
 include 'application'
 include 'sharedkernel'
 include 'user'
+include 'infrastructure'
 
+dependencyResolutionManagement {
+    versionCatalogs {
+        libs {
+            version('mockito', '4.1.0')
+            version('spring', '2.6.1')
+
+            alias('spring-boot-core').to('org.springframework.boot', 'spring-boot-starter').versionRef('spring')
+            alias('spring-boot-actuator').to('org.springframework.boot', 'spring-boot-starter-actuator').versionRef('spring')
+            alias('spring-boot-mongodb').to('org.springframework.boot', 'spring-boot-starter-data-mongodb').versionRef('spring')
+            alias('spring-boot-web').to('org.springframework.boot', 'spring-boot-starter-web').versionRef('spring')
+
+            alias('junit-core').to('junit:junit:4.13.2')
+            alias('junit-jupiter').to('org.junit.jupiter:junit-jupiter:5.8.2')
+
+            alias('mockito-core').to('org.mockito', 'mockito-core').versionRef('mockito')
+            alias('mockito-inline').to('org.mockito', 'mockito-inline').versionRef('mockito')
+
+            bundle('junit', ['junit-core', 'junit-jupiter'])
+            bundle('mockito', ['mockito-core', 'mockito-inline'])
+            bundle('spring', ['spring-boot-core', 'spring-boot-actuator'])
+        }
+    }
+}
