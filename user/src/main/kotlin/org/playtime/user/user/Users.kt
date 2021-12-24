@@ -8,7 +8,7 @@ interface Users {
 
     fun all(): List<User>
 
-    fun with(id: Id): User
+    fun with(userId: UserId): User
 
     fun update(user: User)
 }

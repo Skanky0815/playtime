@@ -1,7 +1,7 @@
 package org.playtime.user.user
 
 data class User(
-    var id: Id = Id.random(),
+    var id: UserId = UserId.random(),
     val iamId: IamId,
     val email: Email,
     val username: Username,
@@ -11,5 +11,14 @@ data class User(
 
     fun verify() {
         verifiedAt = VerifiedDateTime.now()
+    }
+
+    companion object {
+        fun new(id: String, username: Username, email: Email) = User(
+            iamId = IamId.fromString(id),
+            email = email,
+            username = username,
+            registeredAt = RegistrationDateTime.now(),
+        )
     }
 }

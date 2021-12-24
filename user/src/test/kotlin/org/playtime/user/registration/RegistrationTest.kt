@@ -54,12 +54,12 @@ internal class RegistrationTest {
 
     @Test
     fun `verify should verify and activate the user`() {
-        val id = Id.random()
+        val id = UserId.random()
         val password = Password("password")
         val iamId = IamId.fromString("c6b0db48-4ecb-421a-b6b4-ad59be8815cf")
 
         val verifyData = object : VerifyData {
-            override fun id(): Id = id
+            override fun id(): UserId = id
             override fun hash(): String = "Hash"
             override fun password(): Password = password
         }
@@ -74,5 +74,5 @@ internal class RegistrationTest {
         verify(identityAccessManager).activate(iamId, password)
     }
 
-    private fun service() = Registration(identityAccessManager, Factory(), users)
+    private fun service() = Registration(identityAccessManager, users)
 }

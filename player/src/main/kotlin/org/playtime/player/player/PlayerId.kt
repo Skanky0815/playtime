@@ -3,8 +3,8 @@ package org.playtime.player.player
 import org.playtime.sharedkernal.valueobject.IdValueObject
 import java.util.*
 
-data class Id(override val value: UUID) : IdValueObject() {
+data class PlayerId(override val value: UUID) : IdValueObject() {
     companion object {
-        fun random() = Id(UUID.randomUUID())
+        fun random() = PlayerId(UUID.randomUUID())
     }
 }

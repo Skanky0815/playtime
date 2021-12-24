@@ -1,8 +1,8 @@
 package org.playtime.infrastructure.db.repository
 
 import org.playtime.user.user.Email
-import org.playtime.user.user.Id
 import org.playtime.user.user.User
+import org.playtime.user.user.UserId
 import org.playtime.user.user.Users
 import org.springframework.context.annotation.Primary
 import org.springframework.data.mongodb.core.MongoTemplate
@@ -30,10 +30,10 @@ class UserRepository(
 
     override fun all(): List<User> = mongoUserRepository.findAll()
 
-    override fun with(id: Id): User {
+    override fun with(userId: UserId): User {
         val query = Query()
 
-        query.addCriteria(Criteria.where("id").`is`(id))
+        query.addCriteria(Criteria.where("userId").`is`(userId))
 
         return mongoTemplate.findOne(query, User::class.java)!!
     }
