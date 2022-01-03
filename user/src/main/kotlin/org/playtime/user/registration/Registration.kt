@@ -2,13 +2,11 @@ package org.playtime.user.registration
 
 import org.playtime.user.exception.UserExistsException
 import org.playtime.user.service.IdentityAccessManager
-import org.playtime.user.user.Factory
 import org.playtime.user.user.User
 import org.playtime.user.user.Users
 
 class Registration(
     private val identityAccessManager: IdentityAccessManager,
-    private val factory: Factory,
     private val users: Users,
 ) {
     fun new(registrationData: RegistrationData): User {
@@ -16,7 +14,7 @@ class Registration(
             throw UserExistsException(registrationData.email())
         }
 
-        val user = factory.from(
+        val user = User.new(
             identityAccessManager.createUser(registrationData.email(), registrationData.username()),
             registrationData.username(),
             registrationData.email(),

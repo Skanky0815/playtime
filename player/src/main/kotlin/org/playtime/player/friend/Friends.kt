@@ -1,18 +1,18 @@
 package org.playtime.player.friend
 
-import org.playtime.player.player.Id
+import org.playtime.player.player.PlayerId
 
 class Friends(
-    private val playerId: Id
+    private val playerId: PlayerId
 ) {
 
     private val friends: MutableCollection<Friend> = mutableListOf()
 
-    fun add(friendId: Id) {
+    fun add(friendId: PlayerId) {
         friends.add(Friend(playerId, friendId))
     }
 
-    fun accept(friendId: Id) {
+    fun accept(friendId: PlayerId) {
         friends.find { friend -> friend.toPlayerId == friendId }?.accept()
     }
 }

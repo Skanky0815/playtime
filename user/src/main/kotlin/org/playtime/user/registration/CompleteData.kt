@@ -1,7 +1,7 @@
 package org.playtime.user.registration
 
-import org.playtime.user.user.Id
+import org.playtime.user.user.UserId
 
 interface CompleteData {
-    fun id(): Id
+    fun id(): UserId
 }

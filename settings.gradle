@@ -25,9 +25,10 @@ dependencyResolutionManagement {
 
             alias('mockito-core').to('org.mockito', 'mockito-core').versionRef('mockito')
             alias('mockito-inline').to('org.mockito', 'mockito-inline').versionRef('mockito')
+            alias('mockito-junit').to('org.mockito', 'mockito-junit-jupiter').versionRef('mockito')
 
             bundle('junit', ['junit-core', 'junit-jupiter'])
-            bundle('mockito', ['mockito-core', 'mockito-inline'])
+            bundle('mockito', ['mockito-core', 'mockito-inline', 'mockito-junit'])
             bundle('spring', ['spring-boot-core', 'spring-boot-actuator'])
         }
     }

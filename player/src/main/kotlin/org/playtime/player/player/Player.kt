@@ -3,7 +3,7 @@ package org.playtime.player.player
 import org.playtime.player.friend.Friends
 
 data class Player(
-    val id: Id,
+    val id: PlayerId,
     val email: Email,
     val userId: UserId,
 ) {
@@ -23,11 +23,19 @@ data class Player(
         return this
     }
 
-    fun addFriend(friendId: Id) {
+    fun addFriend(friendId: PlayerId) {
         friends.add(friendId)
     }
 
-    fun acceptFriend(friendId: Id) {
+    fun acceptFriend(friendId: PlayerId) {
         friends.accept(friendId)
+    }
+
+    companion object {
+        fun new(email: Email, userId: UserId) = Player(
+            PlayerId.random(),
+            email,
+            userId,
+        )
     }
 }

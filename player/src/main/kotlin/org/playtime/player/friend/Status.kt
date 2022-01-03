@@ -1,5 +1,5 @@
 package org.playtime.player.friend
 
-enum class FriendStatus {
+enum class Status {
     ACCEPTED, PENDING
 }

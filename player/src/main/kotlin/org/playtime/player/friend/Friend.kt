@@ -1,14 +1,14 @@
 package org.playtime.player.friend
 
-import org.playtime.player.player.Id
+import org.playtime.player.player.PlayerId
 
 data class Friend(
-    val fromPlayerId: Id,
-    val toPlayerId: Id,
+    val fromPlayerId: PlayerId,
+    val toPlayerId: PlayerId,
 ) {
-    var status: FriendStatus = FriendStatus.PENDING
+    var status: Status = Status.PENDING
 
     fun accept() {
-        status = FriendStatus.ACCEPTED
+        status = Status.ACCEPTED
     }
 }

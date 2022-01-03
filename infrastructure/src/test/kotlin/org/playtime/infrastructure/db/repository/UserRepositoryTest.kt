@@ -6,8 +6,8 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito.*
 import org.playtime.user.user.Email
-import org.playtime.user.user.Id
 import org.playtime.user.user.User
+import org.playtime.user.user.UserId
 import org.springframework.data.mongodb.core.MongoTemplate
 import org.springframework.data.mongodb.core.query.Query
 
@@ -50,7 +50,7 @@ internal class UserRepositoryTest {
 
     @Test
     fun with() {
-        val id = Id.random()
+        val id = UserId.random()
         val user = mock(User::class.java)
 
         `when`(mongoTemplate.findOne(any(Query::class.java), eq(User::class.java))).thenReturn(user)
