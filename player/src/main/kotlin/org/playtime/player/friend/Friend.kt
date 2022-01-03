@@ -6,9 +6,9 @@ data class Friend(
     val fromPlayerId: PlayerId,
     val toPlayerId: PlayerId,
 ) {
-    var status: FriendStatus = FriendStatus.PENDING
+    var status: Status = Status.PENDING
 
     fun accept() {
-        status = FriendStatus.ACCEPTED
+        status = Status.ACCEPTED
     }
 }

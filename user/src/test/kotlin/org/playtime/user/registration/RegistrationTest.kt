@@ -1,29 +1,33 @@
 package org.playtime.user.registration
 
 import org.junit.jupiter.api.Assertions.*
-import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import org.mockito.Mockito.*
+import org.junit.jupiter.api.extension.ExtendWith
+import org.mockito.InjectMocks
+import org.mockito.Mock
+import org.mockito.Mockito.`when`
+import org.mockito.Mockito.verify
+import org.mockito.junit.jupiter.MockitoExtension
 import org.playtime.user.exception.UserExistsException
 import org.playtime.user.service.IdentityAccessManager
 import org.playtime.user.user.*
 
+@ExtendWith(MockitoExtension::class)
 internal class RegistrationTest {
 
+    @Mock
     private lateinit var users: Users
+    @Mock
     private lateinit var identityAccessManager: IdentityAccessManager
+
+    @InjectMocks
+    private lateinit var registration: Registration
 
     private val mail = Email("test@mail.dee")
     private val username = Username("woop")
     private val registrationData = object : RegistrationData {
         override fun username(): Username = username
         override fun email(): Email = mail
-    }
-
-    @BeforeEach
-    fun reset() {
-        users = mock(Users::class.java)
-        identityAccessManager = mock(IdentityAccessManager::class.java)
     }
 
     @Test
@@ -33,7 +37,7 @@ internal class RegistrationTest {
         `when`(identityAccessManager.createUser(mail, username)).thenReturn(iamId)
         `when`(users.emailExists(mail)).thenReturn(false)
 
-        val user = service().new(registrationData)
+        val user = registration.new(registrationData)
 
         assertEquals(mail, user.email)
         assertEquals(username, user.username)
@@ -46,7 +50,7 @@ internal class RegistrationTest {
         `when`(users.emailExists(mail)).thenReturn(true)
 
         val exception = assertThrows(UserExistsException::class.java) {
-            service().new(registrationData)
+            registration.new(registrationData)
         }
 
         assertEquals("Player with mail address %s already exists.".format(mail), exception.message)
@@ -68,11 +72,9 @@ internal class RegistrationTest {
 
         `when`(users.with(id)).thenReturn(user)
 
-        service().verify(verifyData)
+        registration.verify(verifyData)
 
         assertNotNull(user.verifiedAt)
         verify(identityAccessManager).activate(iamId, password)
     }
-
-    private fun service() = Registration(identityAccessManager, users)
 }
