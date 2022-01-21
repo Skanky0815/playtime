@@ -33,7 +33,7 @@ class UserRepository(
     override fun with(userId: UserId): User {
         val query = Query()
 
-        query.addCriteria(Criteria.where("userId").`is`(userId))
+        query.addCriteria(Criteria.where("id").`is`(userId))
 
         return mongoTemplate.findOne(query, User::class.java)!!
     }
