@@ -1,4 +1,4 @@
-package org.playtime.sharedkernal.valueobject
+package org.playtime.sharedkernel.valueobject
 
 import java.util.*
 

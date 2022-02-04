@@ -1,4 +1,4 @@
-package org.playtime.sharedkernal.valueobject
+package org.playtime.sharedkernel.valueobject
 
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test

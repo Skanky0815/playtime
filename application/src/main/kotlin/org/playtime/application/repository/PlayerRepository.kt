@@ -15,5 +15,5 @@ class PlayerRepository : Players {
 
     override fun with(playerId: PlayerId) = playerMap[playerId]!!
 
-    override fun all() = playerMap.toList().map { pair -> pair.second }
+    override fun all() = playerMap.toList().map { it.second }
 }

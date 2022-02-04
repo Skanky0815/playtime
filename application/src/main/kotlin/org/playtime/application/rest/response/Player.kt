@@ -12,6 +12,6 @@ data class Player(
             email = player.email.toString(),
         )
 
-        fun from(playerList: List<PlayerModel>) = playerList.map { player -> from(player) }
+        fun from(playerList: List<PlayerModel>) = playerList.map { from(it) }
     }
 }

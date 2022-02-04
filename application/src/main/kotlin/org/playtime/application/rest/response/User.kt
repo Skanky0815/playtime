@@ -16,6 +16,6 @@ data class User(
             user.verifiedAt.toString(),
         )
 
-        fun from(userList: List<UserEntity>) = userList.map { user -> from(user) }
+        fun from(userList: List<UserEntity>) = userList.map { from(it) }
     }
 }

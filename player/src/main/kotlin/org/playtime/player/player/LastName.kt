@@ -1,6 +1,6 @@
 package org.playtime.player.player
 
-import org.playtime.sharedkernal.valueobject.StringValueObject
+import org.playtime.sharedkernel.valueobject.StringValueObject
 
 data class LastName(override val value: String) : StringValueObject()
 
