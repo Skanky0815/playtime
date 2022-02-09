@@ -13,6 +13,6 @@ class MyArchitectureTest {
         val rule = classes().that().resideInAPackage("..playtime.player..")
             .should().onlyBeAccessed().byAnyPackage("..playtime.application..", "..playtime.player..")
 
-        rule.check(importedClasses);
+        rule.check(importedClasses)
     }
 }

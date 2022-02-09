@@ -7,10 +7,10 @@ import org.playtime.user.user.Users
 
 class Registration(
     private val identityAccessManager: IdentityAccessManager,
-    private val users: Users,
+    private val allUsers: Users,
 ) {
     fun new(registrationData: RegistrationData): User {
-        if (users.emailExists(registrationData.email())) {
+        if (allUsers.emailExists(registrationData.email())) {
             throw UserExistsException(registrationData.email())
         }
 
@@ -19,17 +19,17 @@ class Registration(
             registrationData.username(),
             registrationData.email(),
         )
-        users.add(user)
+        allUsers.add(user)
 
         return user
     }
 
     fun verify(verifyData: VerifyData) {
-        val user = users.with(verifyData.id())
+        val user = allUsers.with(verifyData.id())
 
         identityAccessManager.activate(user.iamId, verifyData.password())
         user.verify()
 
-        users.update(user)
+        allUsers.update(user)
     }
 }

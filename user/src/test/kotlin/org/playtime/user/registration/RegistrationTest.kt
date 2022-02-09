@@ -53,7 +53,7 @@ internal class RegistrationTest {
             registration.new(registrationData)
         }
 
-        assertEquals("Player with mail address %s already exists.".format(mail), exception.message)
+        assertEquals("User with mail address %s already exists.".format(mail), exception.message)
     }
 
     @Test

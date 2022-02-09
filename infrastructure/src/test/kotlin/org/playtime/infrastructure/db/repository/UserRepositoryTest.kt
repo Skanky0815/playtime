@@ -2,30 +2,31 @@ package org.playtime.infrastructure.db.repository
 
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
-import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.extension.ExtendWith
+import org.mockito.InjectMocks
+import org.mockito.Mock
 import org.mockito.Mockito.*
+import org.mockito.junit.jupiter.MockitoExtension
 import org.playtime.user.user.Email
 import org.playtime.user.user.User
 import org.playtime.user.user.UserId
 import org.springframework.data.mongodb.core.MongoTemplate
 import org.springframework.data.mongodb.core.query.Query
 
+@ExtendWith(MockitoExtension::class)
 internal class UserRepositoryTest {
-    private lateinit var mongoUserRepository: MongoUserRepository
-    private lateinit var mongoTemplate: MongoTemplate
 
-    @BeforeEach
-    fun setUp() {
-        mongoUserRepository = mock(MongoUserRepository::class.java)
-        mongoTemplate = mock(MongoTemplate::class.java)
-    }
+    @Mock private lateinit var mongoUserRepository: MongoUserRepository
+    @Mock private lateinit var mongoTemplate: MongoTemplate
+
+    @InjectMocks private lateinit var userRepository: UserRepository
 
     @Test
     fun add() {
         val user = mock(User::class.java)
 
-        service().add(user)
+        userRepository.add(user)
         verify(mongoUserRepository).save(user)
     }
 
@@ -35,7 +36,7 @@ internal class UserRepositoryTest {
 
         `when`(mongoTemplate.exists(any(Query::class.java), eq(User::class.java))).thenReturn(true)
 
-        assertTrue(service().emailExists(email))
+        assertTrue(userRepository.emailExists(email))
     }
 
     @Test
@@ -45,7 +46,7 @@ internal class UserRepositoryTest {
 
         `when`(mongoUserRepository.findAll()).thenReturn(list)
 
-        assertEquals(list, service().all())
+        assertEquals(list, userRepository.all())
     }
 
     @Test
@@ -55,16 +56,14 @@ internal class UserRepositoryTest {
 
         `when`(mongoTemplate.findOne(any(Query::class.java), eq(User::class.java))).thenReturn(user)
 
-        assertEquals(user, service().with(id))
+        assertEquals(user, userRepository.with(id))
     }
 
     @Test
     fun update() {
         val user = mock(User::class.java)
 
-        service().update(user)
+        userRepository.update(user)
         verify(mongoUserRepository).save(user)
     }
-
-    private fun service() = UserRepository(mongoUserRepository, mongoTemplate)
 }

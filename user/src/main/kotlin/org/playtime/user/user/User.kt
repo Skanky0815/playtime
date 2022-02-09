@@ -7,7 +7,7 @@ data class User(
     val username: Username,
     val registeredAt: RegistrationDateTime,
 ) {
-    var verifiedAt: VerifiedDateTime? = null
+    lateinit var verifiedAt: VerifiedDateTime
 
     fun verify() {
         verifiedAt = VerifiedDateTime.now()
