@@ -1,7 +1,7 @@
 package org.playtime.player.player
 
-import org.playtime.sharedkernel.valueobject.IdValueObject
 import java.util.*
+import org.playtime.sharedkernel.valueobject.IdValueObject
 
 data class PlayerId(override val value: UUID) : IdValueObject() {
     companion object {

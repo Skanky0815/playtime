@@ -1,6 +1,5 @@
 package org.playtime.application.rest.controller
 
-import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.RegisterExtension
 import org.mockserver.client.MockServerClient
 import org.mockserver.springtest.MockServerTest
@@ -25,15 +24,12 @@ class RegistrationControllerTest {
     @RegisterExtension
     var mockServerExtension: MockServerExtension = MockServerExtension("classpath:mockdata/*.json")
 
-    @Autowired
-    private lateinit var mockMvc: MockMvc
+    @Autowired private lateinit var mockMvc: MockMvc
 
     fun `lets try to create a user`() {
         mockMvc
             .perform(
-                post("api/registration")
-                    .param("email", "e@mail.de")
-                    .param("username", "User Name")
+                post("api/registration").param("email", "e@mail.de").param("username", "User Name")
             )
             .andExpect(status().isCreated)
     }

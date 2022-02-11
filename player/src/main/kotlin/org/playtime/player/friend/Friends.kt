@@ -2,9 +2,7 @@ package org.playtime.player.friend
 
 import org.playtime.player.player.PlayerId
 
-class Friends(
-    private val playerId: PlayerId
-) {
+class Friends(private val playerId: PlayerId) {
 
     private val friends: MutableCollection<Friend> = mutableListOf()
 

@@ -32,10 +32,11 @@ data class Player(
     }
 
     companion object {
-        fun new(email: Email, userId: UserId) = Player(
-            PlayerId.random(),
-            email,
-            userId,
-        )
+        fun new(email: Email, userId: UserId) =
+            Player(
+                PlayerId.random(),
+                email,
+                userId,
+            )
     }
 }

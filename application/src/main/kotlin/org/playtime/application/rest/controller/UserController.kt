@@ -8,9 +8,6 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/api/user")
-class UserController(
-    private val userService: UserService
-) {
-    @GetMapping
-    fun index() = User.from(userService.findAll())
+class UserController(private val userService: UserService) {
+    @GetMapping fun index() = User.from(userService.findAll())
 }

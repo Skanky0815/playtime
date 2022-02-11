@@ -11,20 +11,9 @@ import org.springframework.context.annotation.Configuration
 open class UserConfig {
 
     @Bean
-    open fun registration(
-        identityAccessManager: IdentityAccessManagement,
-        users: Users,
-    ) = Registration(
-        identityAccessManager,
-        users,
-    )
+    open fun registration(identityAccessManager: IdentityAccessManagement, users: Users) =
+        Registration(identityAccessManager, users)
 
     @Bean
-    open fun users(
-        registration: Registration,
-        users: Users
-    ) = UserService(
-        registration,
-        users,
-    )
+    open fun users(registration: Registration, users: Users) = UserService(registration, users)
 }

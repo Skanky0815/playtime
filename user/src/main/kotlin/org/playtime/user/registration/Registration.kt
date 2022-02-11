@@ -14,11 +14,15 @@ class Registration(
             throw UserExistsException(registrationData.email())
         }
 
-        val user = User.new(
-            identityAccessManager.createUser(registrationData.email(), registrationData.username()),
-            registrationData.username(),
-            registrationData.email(),
-        )
+        val user =
+            User.new(
+                identityAccessManager.createUser(
+                    registrationData.email(),
+                    registrationData.username()
+                ),
+                registrationData.username(),
+                registrationData.email(),
+            )
         allUsers.add(user)
 
         return user

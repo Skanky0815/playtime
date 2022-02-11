@@ -14,11 +14,12 @@ data class User(
     }
 
     companion object {
-        fun new(id: String, username: Username, email: Email) = User(
-            iamId = IamId.fromString(id),
-            email = email,
-            username = username,
-            registeredAt = RegistrationDateTime.now(),
-        )
+        fun new(id: String, username: Username, email: Email) =
+            User(
+                iamId = IamId.fromString(id),
+                email = email,
+                username = username,
+                registeredAt = RegistrationDateTime.now(),
+            )
     }
 }

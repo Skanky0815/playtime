@@ -6,5 +6,6 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 abstract class ExceptionHandler : ResponseEntityExceptionHandler() {
 
-    protected fun buildResponseEntity(apiError: ApiError) = ResponseEntity(apiError, apiError.status)
+    protected fun buildResponseEntity(apiError: ApiError) =
+        ResponseEntity(apiError, apiError.status)
 }

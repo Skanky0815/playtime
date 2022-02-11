@@ -1,8 +1,8 @@
 package org.playtime.infrastructure.iam
 
+import javax.ws.rs.core.Response
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertThrows
-import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import org.keycloak.admin.client.resource.*
@@ -19,7 +19,6 @@ import org.playtime.user.user.Email
 import org.playtime.user.user.IamId
 import org.playtime.user.user.Password
 import org.playtime.user.user.Username
-import javax.ws.rs.core.Response
 
 @ExtendWith(MockitoExtension::class)
 internal class IdentityAccessManagementTest {
@@ -62,9 +61,7 @@ internal class IdentityAccessManagementTest {
         `when`(userRepresentationFactory.create(email, username)).thenReturn(userRepresentation)
         `when`(usersResource.create(userRepresentation)).thenReturn(response)
 
-        assertThrows(Exception::class.java) {
-            identityAccessManagement.createUser(email, username)
-        }
+        assertThrows(Exception::class.java) { identityAccessManagement.createUser(email, username) }
     }
 
     @Test
@@ -82,7 +79,8 @@ internal class IdentityAccessManagementTest {
         `when`(roleMappingResource.realmLevel()).thenReturn(roleScopesResource)
         `when`(userResource.roles()).thenReturn(roleMappingResource)
         `when`(roleResource.toRepresentation()).thenReturn(roleRepresentation)
-        `when`(passwordRepresentationFactory.create(Password(password))).thenReturn(credentialRepresentation)
+        `when`(passwordRepresentationFactory.create(Password(password)))
+            .thenReturn(credentialRepresentation)
         `when`(rolesResource.get("PLAYER")).thenReturn(roleResource)
         `when`(usersResource.get(id)).thenReturn(userResource)
 

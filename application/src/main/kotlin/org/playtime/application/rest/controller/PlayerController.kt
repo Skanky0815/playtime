@@ -12,6 +12,5 @@ class PlayerController(
     private val players: Players,
 ) {
 
-    @GetMapping
-    fun index() = Player.from(players.all())
+    @GetMapping fun index() = Player.from(players.all())
 }

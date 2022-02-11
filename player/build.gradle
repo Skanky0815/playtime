@@ -1,9 +1,9 @@
 dependencies {
-    implementation project(':sharedkernel')
+	implementation project(':sharedkernel')
 
-    testImplementation 'com.tngtech.archunit:archunit:0.22.0'
+	testImplementation 'com.tngtech.archunit:archunit:0.22.0'
 }
 
 jar {
-    enabled = true
+	enabled = true
 }

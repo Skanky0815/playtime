@@ -13,10 +13,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler as SpringExcepti
 class UserExceptionHandler : ExceptionHandler() {
 
     @SpringExceptionHandler(UserExistsException::class)
-    private fun handleEntityNotFound(ex: UserExistsException) = buildResponseEntity(
-        ApiError(
-            HttpStatus.INTERNAL_SERVER_ERROR,
-            ex.message
-        )
-    )
+    private fun handleEntityNotFound(ex: UserExistsException) =
+        buildResponseEntity(ApiError(HttpStatus.INTERNAL_SERVER_ERROR, ex.message))
 }

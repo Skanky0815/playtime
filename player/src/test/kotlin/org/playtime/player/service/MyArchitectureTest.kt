@@ -10,8 +10,13 @@ class MyArchitectureTest {
     fun some_architecture_rule() {
         val importedClasses = ClassFileImporter().importPackages("org.playtime")
 
-        val rule = classes().that().resideInAPackage("..playtime.player..")
-            .should().onlyBeAccessed().byAnyPackage("..playtime.application..", "..playtime.player..")
+        val rule =
+            classes()
+                .that()
+                .resideInAPackage("..playtime.player..")
+                .should()
+                .onlyBeAccessed()
+                .byAnyPackage("..playtime.application..", "..playtime.player..")
 
         rule.check(importedClasses)
     }

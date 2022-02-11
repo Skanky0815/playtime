@@ -1,34 +1,36 @@
 import org.springframework.boot.gradle.plugin.SpringBootPlugin
 
 plugins {
-    id 'org.springframework.boot' version '2.6.1'
-    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'org.springframework.boot' version '2.6.1'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 }
 
 dependencyManagement {
-    imports {
-        mavenBom SpringBootPlugin.BOM_COORDINATES
-    }
+	imports {
+		mavenBom SpringBootPlugin.BOM_COORDINATES
+	}
 }
 
 dependencies {
-    implementation(libs.bundles.spring)
-    implementation(libs.spring.boot.mongodb)
+	implementation(libs.bundles.spring)
+	implementation(libs.spring.boot.mongodb)
 
-    implementation project(':player')
-    implementation project(':user')
-    implementation project(':sharedkernel')
+	implementation project(':player')
+	implementation project(':user')
+	implementation project(':sharedkernel')
 
-    implementation 'org.keycloak:keycloak-spring-boot-starter:15.0.2'
-    implementation 'org.keycloak:keycloak-admin-client:15.0.2'
+	implementation 'org.keycloak:keycloak-spring-boot-starter:15.0.2'
+	implementation 'org.keycloak:keycloak-admin-client:15.0.2'
 
-    testImplementation(libs.bundles.mockito)
+	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+
+	testImplementation(libs.bundles.mockito)
 }
 
 bootJar {
-    enabled = false
+	enabled = false
 }
 
 jar {
-    enabled = true
+	enabled = true
 }

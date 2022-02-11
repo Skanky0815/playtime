@@ -9,9 +9,10 @@ internal class StringValueObjectTest {
     fun testToString() {
         val string = "my string"
 
-        val stringValueObject = object : StringValueObject() {
-            override val value = string
-        }
+        val stringValueObject =
+            object : StringValueObject() {
+                override val value = string
+            }
 
         assertEquals(string, stringValueObject.toString())
     }

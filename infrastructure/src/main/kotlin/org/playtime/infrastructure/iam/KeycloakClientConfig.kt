@@ -11,27 +11,22 @@ import org.springframework.context.annotation.Configuration
 
 @Configuration
 open class KeycloakClientConfig(
-    @Value("\${keycloak.credentials.secret}")
-    private val secretKey: String,
-    @Value("\${keycloak.resource}")
-    private val clientId: String,
-    @Value("\${keycloak.auth-server-url}")
-    private val authUrl: String,
-    @Value("\${keycloak.realm}")
-    private val realm: String
+    @Value("\${keycloak.credentials.secret}") private val secretKey: String,
+    @Value("\${keycloak.resource}") private val clientId: String,
+    @Value("\${keycloak.auth-server-url}") private val authUrl: String,
+    @Value("\${keycloak.realm}") private val realm: String
 ) {
     @Bean
-    open fun keycloak(): Keycloak = KeycloakBuilder.builder()
-        .grantType(OAuth2Constants.CLIENT_CREDENTIALS)
-        .serverUrl(authUrl)
-        .realm(realm)
-        .clientId(clientId)
-        .clientSecret(secretKey)
-        .build()
+    open fun keycloak(): Keycloak =
+        KeycloakBuilder.builder()
+            .grantType(OAuth2Constants.CLIENT_CREDENTIALS)
+            .serverUrl(authUrl)
+            .realm(realm)
+            .clientId(clientId)
+            .clientSecret(secretKey)
+            .build()
 
-    @Bean
-    open fun usersResource(keycloak: Keycloak): UsersResource = keycloak.realm(realm).users()
+    @Bean open fun usersResource(keycloak: Keycloak): UsersResource = keycloak.realm(realm).users()
 
-    @Bean
-    open fun rolesResource(keycloak: Keycloak): RolesResource = keycloak.realm(realm).roles()
+    @Bean open fun rolesResource(keycloak: Keycloak): RolesResource = keycloak.realm(realm).roles()
 }

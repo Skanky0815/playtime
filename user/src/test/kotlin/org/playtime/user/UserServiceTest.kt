@@ -16,13 +16,10 @@ import org.playtime.user.user.Users
 @ExtendWith(MockitoExtension::class)
 internal class UserServiceTest {
 
-    @Mock
-    private lateinit var registration: Registration
-    @Mock
-    private lateinit var users: Users
+    @Mock private lateinit var registration: Registration
+    @Mock private lateinit var users: Users
 
-    @InjectMocks
-    private lateinit var userService: UserService
+    @InjectMocks private lateinit var userService: UserService
 
     @Test
     fun create() {

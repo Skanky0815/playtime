@@ -1,5 +1,6 @@
 package org.playtime.infrastructure.iam
 
+import java.net.HttpURLConnection
 import org.keycloak.admin.client.resource.RolesResource
 import org.keycloak.admin.client.resource.UsersResource
 import org.playtime.infrastructure.iam.exception.CreateUserException
@@ -11,7 +12,6 @@ import org.playtime.user.user.IamId
 import org.playtime.user.user.Password
 import org.playtime.user.user.Username
 import org.springframework.stereotype.Service
-import java.net.HttpURLConnection
 
 @Service
 class IdentityAccessManagement(
