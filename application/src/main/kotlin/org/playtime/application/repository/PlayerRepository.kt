@@ -7,13 +7,13 @@ import org.springframework.stereotype.Service
 
 @Service
 class PlayerRepository : Players {
-    private val playerMap: HashMap<PlayerId, Player> = hashMapOf()
+    private val players: MutableList<Player> = mutableListOf()
 
     override fun add(player: Player) {
-        playerMap[player.id] = player
+        players.add(player)
     }
 
-    override fun with(playerId: PlayerId) = playerMap[playerId]!!
+    override fun with(playerId: PlayerId) = players.first { it.id == playerId }
 
-    override fun all() = playerMap.toList().map { it.second }
+    override fun all() = players
 }

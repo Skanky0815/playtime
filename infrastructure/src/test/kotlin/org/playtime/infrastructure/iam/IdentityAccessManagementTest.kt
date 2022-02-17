@@ -13,6 +13,7 @@ import org.mockito.InjectMocks
 import org.mockito.Mock
 import org.mockito.Mockito.*
 import org.mockito.junit.jupiter.MockitoExtension
+import org.playtime.infrastructure.iam.exception.CreateUserException
 import org.playtime.infrastructure.iam.factory.PasswordRepresentationFactory
 import org.playtime.infrastructure.iam.factory.UserRepresentationFactory
 import org.playtime.user.user.Email
@@ -61,7 +62,9 @@ internal class IdentityAccessManagementTest {
         `when`(userRepresentationFactory.create(email, username)).thenReturn(userRepresentation)
         `when`(usersResource.create(userRepresentation)).thenReturn(response)
 
-        assertThrows(Exception::class.java) { identityAccessManagement.createUser(email, username) }
+        assertThrows(CreateUserException::class.java) {
+            identityAccessManagement.createUser(email, username)
+        }
     }
 
     @Test

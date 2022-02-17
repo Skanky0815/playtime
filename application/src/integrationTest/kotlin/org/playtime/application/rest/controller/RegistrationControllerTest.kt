@@ -1,5 +1,6 @@
 package org.playtime.application.rest.controller
 
+import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.RegisterExtension
 import org.mockserver.client.MockServerClient
 import org.mockserver.springtest.MockServerTest
@@ -26,6 +27,7 @@ class RegistrationControllerTest {
 
     @Autowired private lateinit var mockMvc: MockMvc
 
+    @Test
     fun `lets try to create a user`() {
         mockMvc
             .perform(

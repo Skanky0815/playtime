@@ -10,19 +10,9 @@ class Registration(
     private val allUsers: Users,
 ) {
     fun new(registrationData: RegistrationData): User {
-        if (allUsers.emailExists(registrationData.email())) {
-            throw UserExistsException(registrationData.email())
-        }
+        checkMailExists(registrationData)
 
-        val user =
-            User.new(
-                identityAccessManager.createUser(
-                    registrationData.email(),
-                    registrationData.username()
-                ),
-                registrationData.username(),
-                registrationData.email(),
-            )
+        val user = createUser(registrationData)
         allUsers.add(user)
 
         return user
@@ -36,4 +26,17 @@ class Registration(
 
         allUsers.update(user)
     }
+
+    private fun checkMailExists(registrationData: RegistrationData) {
+        if (allUsers.emailExists(registrationData.email())) {
+            throw UserExistsException(registrationData.email())
+        }
+    }
+
+    private fun createUser(registrationData: RegistrationData) =
+        User.new(
+            identityAccessManager.createUser(registrationData.email(), registrationData.username()),
+            registrationData.username(),
+            registrationData.email(),
+        )
 }

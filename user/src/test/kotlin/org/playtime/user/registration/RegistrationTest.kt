@@ -61,9 +61,9 @@ internal class RegistrationTest {
 
         val verifyData =
             object : VerifyData {
-                override fun id(): UserId = id
-                override fun hash(): String = "Hash"
-                override fun password(): Password = password
+                override fun id() = id
+                override fun hash() = "Hash"
+                override fun password() = password
             }
 
         val user = User(id, iamId, Email("email"), Username("woop"), RegistrationDateTime.now())

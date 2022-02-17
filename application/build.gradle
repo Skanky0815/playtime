@@ -1,74 +1,74 @@
 plugins {
-    id 'idea'
-    id 'org.springframework.boot' version '2.6.1'
-    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-    id 'application'
+	id 'idea'
+	id 'org.springframework.boot' version '2.6.1'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'application'
 }
 
 application {
-    mainClass = 'org.playtime.application.PlaytimeApplication'
+	mainClass = 'org.playtime.application.PlaytimeApplication'
 }
 
 sourceSets {
-    generated {
-        compileClasspath = configurations.compileClasspath
-    }
+	generated {
+		compileClasspath = configurations.compileClasspath
+	}
 
-    main {
-        compileClasspath += generated.output
-        runtimeClasspath += generated.output
-    }
+	main {
+		compileClasspath += generated.output
+		runtimeClasspath += generated.output
+	}
 
-    test {
-        compileClasspath += generated.output
-        runtimeClasspath += generated.output
-    }
+	test {
+		compileClasspath += generated.output
+		runtimeClasspath += generated.output
+	}
 
-    integrationTest {
-        compileClasspath += generated.output
-        compileClasspath += sourceSets.main.output
-        runtimeClasspath += generated.output
-        runtimeClasspath += sourceSets.main.output
-    }
+	integrationTest {
+		compileClasspath += generated.output
+		compileClasspath += sourceSets.main.output
+		runtimeClasspath += generated.output
+		runtimeClasspath += sourceSets.main.output
+	}
 }
 
 configurations {
-    integrationTestImplementation.extendsFrom testImplementation
-    integrationTestRuntimeOnly.extendsFrom testRuntimeOnly
+	integrationTestImplementation.extendsFrom testImplementation
+	integrationTestRuntimeOnly.extendsFrom testRuntimeOnly
 }
 
 idea {
-    module {
-        //Tells IntelliJ that the integrationTest folder contains test files
-        testSourceDirs += project.sourceSets.integrationTest.java.srcDirs
-        testResourceDirs += project.sourceSets.integrationTest.resources.srcDirs
-    }
+	module {
+		//Tells IntelliJ that the integrationTest folder contains test files
+		testSourceDirs += project.sourceSets.integrationTest.java.srcDirs
+		testResourceDirs += project.sourceSets.integrationTest.resources.srcDirs
+	}
 }
 
 dependencies {
-    implementation(libs.bundles.spring)
-    implementation(libs.spring.boot.web)
-    implementation 'com.fasterxml.jackson.module:jackson-module-kotlin:2.13.1'
+	implementation(libs.bundles.spring)
+	implementation(libs.spring.boot.web)
+	implementation 'com.fasterxml.jackson.module:jackson-module-kotlin:2.13.1'
 
-    implementation project(':player')
-    implementation project(':user')
-    implementation project(':sharedkernel')
-    implementation project(':infrastructure')
+	implementation project(':player')
+	implementation project(':user')
+	implementation project(':sharedkernel')
+	implementation project(':infrastructure')
 
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
-    integrationTestImplementation 'org.springframework.boot:spring-boot-starter-test'
-    integrationTestImplementation 'org.mock-server:mockserver-spring-test-listener:5.11.2'
+	integrationTestImplementation 'org.springframework.boot:spring-boot-starter-test'
+	integrationTestImplementation 'org.mock-server:mockserver-spring-test-listener:5.11.2'
 }
 
 task integrationTest(type: Test) {
-    description = 'Runs integration tests.'
-    group = 'verification'
+	description = 'Runs integration tests.'
+	group = 'verification'
 
-    testClassesDirs = sourceSets.integrationTest.output.classesDirs
-    classpath = sourceSets.integrationTest.runtimeClasspath
+	testClassesDirs = sourceSets.integrationTest.output.classesDirs
+	classpath = sourceSets.integrationTest.runtimeClasspath
 }
 
 tasks.withType(Test) {
-    useJUnitPlatform()
+	useJUnitPlatform()
 }
