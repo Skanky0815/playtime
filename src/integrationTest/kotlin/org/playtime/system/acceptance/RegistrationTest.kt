@@ -13,6 +13,7 @@ import org.junit.jupiter.api.extension.ExtendWith
 import org.playtime.system.registration.entity.User
 import org.playtime.system.registration.repository.Users
 import org.playtime.system.registration.service.IdentityAccessManager
+import org.playtime.system.registration.service.Mailer
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import org.springframework.boot.test.context.SpringBootTest
@@ -31,6 +32,7 @@ class RegistrationTest {
 
     @MockkBean private lateinit var users: Users
     @MockkBean private lateinit var identityAccessManager: IdentityAccessManager
+    @MockkBean private lateinit var mailer: Mailer
 
     @Test
     fun `when registration route is called then status created returned`() {
@@ -42,6 +44,7 @@ class RegistrationTest {
 
         every { users.emailExists(email) } returns false
         justRun { users.add(capture(user)) }
+        justRun { mailer.sendRegistrationConfirmMail(any()) }
 
         every { identityAccessManager.createUser(username, email) } returns iamId
 
@@ -62,9 +65,10 @@ class RegistrationTest {
             users.emailExists(email)
             users.add(any())
             identityAccessManager.createUser(username, email)
+            mailer.sendRegistrationConfirmMail(any())
         }
 
-        confirmVerified(users, identityAccessManager)
+        confirmVerified(users, identityAccessManager, mailer)
 
         assertEquals(iamId, user.captured.iamId)
         assertEquals(username, user.captured.username)

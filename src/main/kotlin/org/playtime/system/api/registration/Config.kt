@@ -6,6 +6,7 @@ import org.playtime.system.registration.repository.Users
 import org.playtime.system.registration.service.Activator
 import org.playtime.system.registration.service.Creator
 import org.playtime.system.registration.service.IdentityAccessManager
+import org.playtime.system.registration.service.Mailer
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
@@ -41,10 +42,21 @@ class Config {
         }
 
     @Bean
-    fun registration(users: Users, identityAccessManager: IdentityAccessManager): Creator =
-        Creator(users, identityAccessManager)
+    fun mailer(): Mailer = object : Mailer {
+        override fun sendRegistrationConfirmMail(user: User) {
+            TODO("Not yet implemented")
+        }
+
+        override fun sendRegistrationSuccessfulMail(user: User) {
+            TODO("Not yet implemented")
+        }
+    }
 
     @Bean
-    fun activator(users: Users, identityAccessManager: IdentityAccessManager): Activator =
-        Activator(users, identityAccessManager)
+    fun registration(users: Users, identityAccessManager: IdentityAccessManager, mailer: Mailer): Creator =
+        Creator(users, identityAccessManager, mailer)
+
+    @Bean
+    fun activator(users: Users, identityAccessManager: IdentityAccessManager, mailer: Mailer): Activator =
+        Activator(users, identityAccessManager, mailer)
 }

@@ -23,6 +23,7 @@ internal class CreatorTest {
 
     @MockK private lateinit var userRepository: Users
     @MockK private lateinit var identityAccessManagerService: IdentityAccessManager
+    @MockK private lateinit var mailer: Mailer
 
     @InjectMockKs private lateinit var creator: Creator
 
@@ -50,16 +51,18 @@ internal class CreatorTest {
             )
         } returns iamId
         justRun { userRepository.add(capture(user)) }
+        justRun { mailer.sendRegistrationConfirmMail(any()) }
 
         creator.registerNewUser(registrationData)
 
         verify {
             userRepository.emailExists(any())
             userRepository.add(any())
+            mailer.sendRegistrationConfirmMail(any())
         }
 
         assertEquals(iamId, user.captured.iamId)
 
-        confirmVerified(userRepository)
+        confirmVerified(userRepository, mailer)
     }
 }

@@ -11,6 +11,7 @@ import org.junit.jupiter.api.extension.ExtendWith
 import org.playtime.system.registration.entity.User
 import org.playtime.system.registration.repository.Users
 import org.playtime.system.registration.service.IdentityAccessManager
+import org.playtime.system.registration.service.Mailer
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import org.springframework.boot.test.context.SpringBootTest
@@ -30,6 +31,7 @@ class ActivationTest {
 
     @MockkBean private lateinit var users: Users
     @MockkBean private lateinit var identityAccessManager: IdentityAccessManager
+    @MockkBean private lateinit var mailer: Mailer
 
     @Test
     fun `when activation route is called and given hash is valid then status NoContent returned`() {
@@ -40,6 +42,7 @@ class ActivationTest {
         every { users.with(UUID.fromString(userId)) } returns user
         justRun { identityAccessManager.activate(user, password) }
         justRun { user.activate() }
+        justRun { mailer.sendRegistrationSuccessfulMail(user) }
 
         mockMvc
             .perform(
@@ -54,8 +57,9 @@ class ActivationTest {
         verify {
             user.activate()
             identityAccessManager.activate(user, password)
+            mailer.sendRegistrationSuccessfulMail(user)
         }
 
-        confirmVerified(user, identityAccessManager)
+        confirmVerified(user, identityAccessManager, mailer)
     }
 }

@@ -8,21 +8,23 @@ import org.playtime.system.registration.value.`object`.RegistrationData
 class Creator(
     private val allUsers: Users,
     private val identityAccessManager: IdentityAccessManager,
+    private val mailer: Mailer,
 ) {
     fun registerNewUser(registrationData: RegistrationData) {
         checkIfEmailExists(registrationData.email)
 
-        allUsers.add(
-            User(
-                username = registrationData.username,
-                email = registrationData.email,
-                iamId =
-                    identityAccessManager.createUser(
-                        registrationData.username,
-                        registrationData.email
-                    )
+        val user = User(
+            username = registrationData.username,
+            email = registrationData.email,
+            iamId =
+            identityAccessManager.createUser(
+                registrationData.username,
+                registrationData.email
             )
         )
+
+        allUsers.add(user)
+        mailer.sendRegistrationConfirmMail(user)
     }
 
     private fun checkIfEmailExists(email: String) {

@@ -19,6 +19,7 @@ internal class ActivatorTest {
 
     @MockK private lateinit var users: Users
     @MockK private lateinit var identityAccessManager: IdentityAccessManager
+    @MockK private lateinit var mailer: Mailer
 
     @InjectMockKs private lateinit var activator: Activator
 
@@ -35,11 +36,16 @@ internal class ActivatorTest {
         every { users.with(activationData.userId) } returns user
         justRun { identityAccessManager.activate(user, activationData.password) }
         justRun { user.activate() }
+        justRun { mailer.sendRegistrationSuccessfulMail(user) }
 
         activator.activateUser(activationData)
 
-        verify { user.activate() }
+        verify {
+            user.activate()
+            identityAccessManager.activate(user, activationData.password)
+            mailer.sendRegistrationSuccessfulMail(user)
+        }
 
-        confirmVerified(user)
+        confirmVerified(user, identityAccessManager, mailer)
     }
 }
