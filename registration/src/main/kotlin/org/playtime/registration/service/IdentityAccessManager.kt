@@ -1,7 +1,7 @@
-package org.playtime.system.registration.service
+package org.playtime.registration.service
 
 import java.util.UUID
-import org.playtime.system.registration.entity.User
+import org.playtime.registration.entity.User
 
 interface IdentityAccessManager {
     fun createUser(username: String, email: String): UUID

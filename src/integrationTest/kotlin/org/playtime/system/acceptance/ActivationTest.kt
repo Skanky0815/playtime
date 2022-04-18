@@ -8,10 +8,10 @@ import io.mockk.mockk
 import io.mockk.verify
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
-import org.playtime.system.registration.entity.User
-import org.playtime.system.registration.repository.Users
-import org.playtime.system.registration.service.IdentityAccessManager
-import org.playtime.system.registration.service.Mailer
+import org.playtime.registration.entity.User
+import org.playtime.registration.repository.Users
+import org.playtime.registration.service.IdentityAccessManager
+import org.playtime.registration.service.Mailer
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import org.springframework.boot.test.context.SpringBootTest

@@ -1,10 +1,10 @@
-package org.playtime.system.registration
+package org.playtime.registration
 
 import io.github.serpro69.kfaker.faker
 import java.util.UUID
-import org.playtime.system.registration.entity.User
-import org.playtime.system.registration.value.`object`.ActivationData
-import org.playtime.system.registration.value.`object`.RegistrationData
+import org.playtime.registration.entity.User
+import org.playtime.registration.value.`object`.ActivationData
+import org.playtime.registration.value.`object`.RegistrationData
 
 object Fake {
 

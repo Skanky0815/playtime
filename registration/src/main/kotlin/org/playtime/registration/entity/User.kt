@@ -1,4 +1,4 @@
-package org.playtime.system.registration.entity
+package org.playtime.registration.entity
 
 import java.time.LocalDateTime
 import java.util.UUID

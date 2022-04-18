@@ -2,7 +2,10 @@ enableFeaturePreview("VERSION_CATALOGS")
 
 rootProject.name = "system"
 
-include("registration")
+include(
+    "registration",
+    "infrastructure"
+)
 
 dependencyResolutionManagement {
     versionCatalogs {

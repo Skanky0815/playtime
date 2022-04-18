@@ -1,4 +1,4 @@
-package org.playtime.system.registration.service
+package org.playtime.registration.service
 
 import io.mockk.confirmVerified
 import io.mockk.every
@@ -10,9 +10,9 @@ import io.mockk.mockk
 import io.mockk.verify
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
-import org.playtime.system.registration.Fake
-import org.playtime.system.registration.entity.User
-import org.playtime.system.registration.repository.Users
+import org.playtime.registration.Fake
+import org.playtime.registration.entity.User
+import org.playtime.registration.repository.Users
 
 @ExtendWith(MockKExtension::class)
 internal class ActivatorTest {

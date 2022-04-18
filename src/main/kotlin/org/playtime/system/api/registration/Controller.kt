@@ -1,8 +1,8 @@
 package org.playtime.system.api.registration
 
-import org.playtime.system.registration.exception.UserExistsException
-import org.playtime.system.registration.service.Activator
-import org.playtime.system.registration.service.Creator
+import org.playtime.registration.exception.UserExistsException
+import org.playtime.registration.service.Activator
+import org.playtime.registration.service.Creator
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.PutMapping

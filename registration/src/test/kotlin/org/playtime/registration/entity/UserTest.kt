@@ -1,9 +1,9 @@
-package org.playtime.system.registration.entity
+package org.playtime.registration.entity
 
 import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
-import org.playtime.system.registration.Fake
+import org.playtime.registration.Fake
 
 internal class UserTest {
 

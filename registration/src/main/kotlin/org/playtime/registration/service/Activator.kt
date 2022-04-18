@@ -1,7 +1,7 @@
-package org.playtime.system.registration.service
+package org.playtime.registration.service
 
-import org.playtime.system.registration.repository.Users
-import org.playtime.system.registration.value.`object`.ActivationData
+import org.playtime.registration.repository.Users
+import org.playtime.registration.value.`object`.ActivationData
 
 class Activator(
     private val users: Users,

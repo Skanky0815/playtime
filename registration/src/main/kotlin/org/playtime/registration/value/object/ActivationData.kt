@@ -1,4 +1,4 @@
-package org.playtime.system.registration.value.`object`
+package org.playtime.registration.value.`object`
 
 import java.util.UUID
 

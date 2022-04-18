@@ -1,12 +1,12 @@
 package org.playtime.system.api.registration
 
 import java.util.UUID
-import org.playtime.system.registration.entity.User
-import org.playtime.system.registration.repository.Users
-import org.playtime.system.registration.service.Activator
-import org.playtime.system.registration.service.Creator
-import org.playtime.system.registration.service.IdentityAccessManager
-import org.playtime.system.registration.service.Mailer
+import org.playtime.registration.entity.User
+import org.playtime.registration.repository.Users
+import org.playtime.registration.service.Activator
+import org.playtime.registration.service.Creator
+import org.playtime.registration.service.IdentityAccessManager
+import org.playtime.registration.service.Mailer
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 

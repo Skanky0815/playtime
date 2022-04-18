@@ -1,7 +1,7 @@
-package org.playtime.system.registration.repository
+package org.playtime.registration.repository
 
 import java.util.UUID
-import org.playtime.system.registration.entity.User
+import org.playtime.registration.entity.User
 
 interface Users {
     fun emailExists(email: String): Boolean
