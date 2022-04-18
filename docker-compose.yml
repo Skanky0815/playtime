@@ -1,0 +1,14 @@
+version: "3.7"
+
+services:
+  keycloak:
+    image: jboss/keycloak
+    container_name: playtime-keycloak
+    environment:
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: admin
+      KEYCLOAK_IMPORT: "/opt/jboss/import.json -Dkeycloak.profile.feature.upload_scripts=enabled"
+    ports:
+      - "8081:8080"
+    volumes:
+      - ./docker/keycloak/realm-export.json:/opt/jboss/import.json
