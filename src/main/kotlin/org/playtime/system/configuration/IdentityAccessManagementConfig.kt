@@ -30,7 +30,7 @@ class IdentityAccessManagementConfig {
     fun keycloak(keycloakProperties: KeycloakProperties): Keycloak =
         KeycloakBuilder.builder()
             .grantType(OAuth2Constants.CLIENT_CREDENTIALS)
-            .serverUrl(keycloakProperties.authUrl)
+            .serverUrl(keycloakProperties.authServerUrl)
             .realm(keycloakProperties.realm)
             .clientId(keycloakProperties.clientId)
             .clientSecret(keycloakProperties.secretKey)

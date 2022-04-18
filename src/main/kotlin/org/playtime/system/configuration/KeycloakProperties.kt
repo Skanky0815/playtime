@@ -6,7 +6,7 @@ import org.springframework.boot.context.properties.ConstructorBinding
 @ConfigurationProperties(prefix = "playtime.keycloak")
 @ConstructorBinding
 data class KeycloakProperties(
-    val authUrl: String,
+    val authServerUrl: String,
     val clientId: String,
     val secretKey: String,
     val realm: String,

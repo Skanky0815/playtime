@@ -23,12 +23,13 @@ Möglichkeit sich zu Spielgruppen zu finden und Spielesessions zu planen.
 
 ## DevSetup
 
-1. Docker starten `$ docker compose up -d`
-2. Realm und Admin Client im [Keycloak](http://localhost:8081/auth/admin/master/console) einrichten
-    1. Account Settings für den Admin Account
-       ![](doku/src/account_settings.png)
-       ![](doku/src/account_roles.png)
-    2. Zudem muss noch die Rolle PLAYER eingerichtet werden
+Um das System zu starten, muss zu erste `$ docker compose up -d` ausgeführt werden im anschluss kan die Applikation mit dem _local_ Profil gestartet werden. 
+
+
+### Keycloak 
+Zugang zum [Keycloak](http://localhost:8081/auth/admin/master/console) backend:
+- **Username**: admin
+- **Password**: admin
 
 ### Anforderungen
 
