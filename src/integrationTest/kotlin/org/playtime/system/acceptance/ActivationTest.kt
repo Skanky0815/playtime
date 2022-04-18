@@ -6,6 +6,7 @@ import io.mockk.every
 import io.mockk.justRun
 import io.mockk.mockk
 import io.mockk.verify
+import java.util.*
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import org.playtime.registration.entity.User
@@ -20,7 +21,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
-import java.util.*
 
 @ExtendWith(SpringExtension::class)
 @SpringBootTest
@@ -48,9 +48,7 @@ class ActivationTest {
             .perform(
                 put("/api/registration/activate")
                     .contentType(APPLICATION_JSON)
-                    .content(
-                        """{"userId": "$userId", "password": "$password"}""".trimMargin()
-                    )
+                    .content("""{"userId": "$userId", "password": "$password"}""".trimMargin())
             )
             .andExpect(status().isNoContent)
 

@@ -39,6 +39,11 @@ repositories { mavenCentral() }
 
 dependencies {
     implementation(project(":registration"))
+    implementation(project(":infrastructure"))
+
+    implementation("org.keycloak:keycloak-admin-client:17.0.1")
+
+    annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")

@@ -86,9 +86,7 @@ class RegistrationTest {
             .perform(
                 post("/api/registration")
                     .contentType(MediaType.APPLICATION_JSON)
-                    .content(
-                        """{"username": "$username", "email": "$email"}""".trimMargin()
-                    )
+                    .content("""{"username": "$username", "email": "$email"}""".trimMargin())
             )
             .andExpect(status().isConflict)
 
