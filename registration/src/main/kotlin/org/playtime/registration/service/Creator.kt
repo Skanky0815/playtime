@@ -13,15 +13,16 @@ class Creator(
     fun registerNewUser(registrationData: RegistrationData) {
         checkIfEmailExists(registrationData.email)
 
-        val user = User(
-            username = registrationData.username,
-            email = registrationData.email,
-            iamId =
-            identityAccessManager.createUser(
-                registrationData.username,
-                registrationData.email
+        val user =
+            User(
+                username = registrationData.username,
+                email = registrationData.email,
+                iamId =
+                    identityAccessManager.createUser(
+                        registrationData.username,
+                        registrationData.email
+                    )
             )
-        )
 
         allUsers.add(user)
         mailer.sendRegistrationConfirmMail(user)
