@@ -5,26 +5,11 @@ import org.keycloak.admin.client.Keycloak
 import org.keycloak.admin.client.KeycloakBuilder
 import org.keycloak.admin.client.resource.RolesResource
 import org.keycloak.admin.client.resource.UsersResource
-import org.playtime.infrastructure.iam.IdentityAccessManagement
-import org.playtime.infrastructure.iam.factory.PasswordRepresentationFactory
-import org.playtime.infrastructure.iam.factory.UserRepresentationFactory
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
 @Configuration
 class IdentityAccessManagementConfig {
-
-    @Bean
-    fun identityAccessManagement(
-        usersResource: UsersResource,
-        rolesResource: RolesResource,
-    ): IdentityAccessManagement =
-        IdentityAccessManagement(
-            usersResource,
-            rolesResource,
-            PasswordRepresentationFactory(),
-            UserRepresentationFactory()
-        )
 
     @Bean
     fun keycloak(keycloakProperties: KeycloakProperties): Keycloak =

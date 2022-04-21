@@ -37,6 +37,7 @@ internal class ActivatorTest {
         justRun { identityAccessManager.activate(user, activationData.password) }
         justRun { user.activate() }
         justRun { mailer.sendRegistrationSuccessfulMail(user) }
+        justRun { users.update(user) }
 
         activator.activateUser(activationData)
 
@@ -44,8 +45,10 @@ internal class ActivatorTest {
             user.activate()
             identityAccessManager.activate(user, activationData.password)
             mailer.sendRegistrationSuccessfulMail(user)
+            users.with(activationData.userId)
+            users.update(user)
         }
 
-        confirmVerified(user, identityAccessManager, mailer)
+        confirmVerified(user, identityAccessManager, mailer, users)
     }
 }

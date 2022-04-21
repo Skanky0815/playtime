@@ -10,9 +10,10 @@ class Activator(
 ) {
     fun activateUser(activationData: ActivationData) {
         val user = users.with(activationData.userId)
-        identityAccessManager.activate(user, activationData.password)
 
+        identityAccessManager.activate(user, activationData.password)
         user.activate()
+        users.update(user)
 
         mailer.sendRegistrationSuccessfulMail(user)
     }

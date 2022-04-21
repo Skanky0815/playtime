@@ -46,7 +46,10 @@ dependencies {
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 
     implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
+
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
@@ -55,6 +58,7 @@ dependencies {
         exclude(module = "mockito-core")
     }
     testImplementation("com.ninja-squad:springmockk:3.1.1")
+    testImplementation("de.flapdoodle.embed:de.flapdoodle.embed.mongo:3.4.5")
     testImplementation(libs.mockk)
 }
 

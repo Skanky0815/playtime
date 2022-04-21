@@ -12,3 +12,13 @@ services:
       - "8081:8080"
     volumes:
       - ./docker/keycloak/realm-export.json:/opt/jboss/import.json
+
+  mongo:
+    image: mongo
+    container_name: playtime-mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+      MONGO_INITDB_DATABASE: playtime
+    ports:
+      - "27017:27017"

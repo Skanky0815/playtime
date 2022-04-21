@@ -1,8 +1,8 @@
 package org.playtime.system.api.registration
 
-import org.playtime.registration.exception.UserExistsException
 import org.playtime.registration.service.Activator
 import org.playtime.registration.service.Creator
+import org.slf4j.LoggerFactory
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.PutMapping
@@ -18,14 +18,16 @@ class Controller(
     private val creator: Creator,
     private val activator: Activator,
 ) {
+    private val logger = LoggerFactory.getLogger(Controller::class.java)
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     fun registerUser(@RequestBody createRequest: CreateRequest) {
         try {
             creator.registerNewUser(createRequest)
-        } catch (e: UserExistsException) {
-            throw ResponseStatusException(HttpStatus.CONFLICT, e.message)
+        } catch (e: Throwable) {
+            logger.error(e.message)
+            throw ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.message)
         }
     }
 
