@@ -9,14 +9,18 @@ wird im Keycloak angelegt.
 
 ![](6_1_registration.drawio.png)
 
-## 6.2 Spielgruppe verwalten
+## 6.2 Spielerprofil verwalten
+
+Der Benutzer kann Informationen zu seiner Person so wie vorlieben für Spiele etc verwalten. 
+
+## 6.3 Spielgruppe verwalten
 
 Benutzer können Spielgruppen erstellen und andere Spieler zu den Gruppen einladen.
 
-## 6.3 Verfügbarkeitszeiten verwalten
+## 6.4 Verfügbarkeitszeiten verwalten
 
 Jeder Spiele kann Zeiten, wann er für eine Spielsitzung verfügbar ist angeben.
 
-## 6.4 Spielsitzung verwalten
+## 6.5 Spielsitzung verwalten
 
 Spieler können für einzelne Spieler oder alle Spieler einer Spielgruppe eine Spielsitzung planen.

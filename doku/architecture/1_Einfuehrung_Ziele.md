@@ -29,10 +29,10 @@ insbesondere auch dazu ihre Erreichung zu bewerten.
 
 Die folgende Tabelle stellt die Stakeholder von DokChess und ihre jeweilige Intention dar.
 
-| Wer?        | Interesse, Bezug                                                                       |
-|-------------|----------------------------------------------------------------------------------------|
-| Rico Schulz | Initiator, Architekt und Entwickler                                                    |
-| Spieler     | Die Spieler sollen sich regestieren und ihre Spieleabende über das System organisieren |
+| Wer?        | Interesse, Bezug                                                                        |
+|-------------|-----------------------------------------------------------------------------------------|
+| Rico Schulz | Initiator, Architekt und Entwickler                                                     |
+| Spieler     | Die Spieler sollen sich registrieren und ihre Spieleabende über das System organisieren |
 
 
 Es gibt _aktuell_ nur ein Stakeholder Rico Schulz :D
