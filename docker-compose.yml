@@ -22,3 +22,12 @@ services:
       MONGO_INITDB_DATABASE: playtime
     ports:
       - "27017:27017"
+
+  mailhog:
+    image: mailhog/mailhog
+    container_name: playtime-mailhog
+    logging:
+      driver: 'none'
+    ports:
+      - "1025:1025" # smtp server
+      - "8025:8025" # web ui

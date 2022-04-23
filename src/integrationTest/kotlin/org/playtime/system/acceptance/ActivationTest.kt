@@ -12,7 +12,7 @@ import org.keycloak.admin.client.Keycloak
 import org.playtime.infrastructure.db.repository.MongoUserRepository
 import org.playtime.registration.entity.User
 import org.playtime.registration.service.IdentityAccessManager
-import org.playtime.registration.service.Mailer
+import org.playtime.shared.kernel.services.Mailer
 import org.playtime.system.configuration.KeycloakProperties
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.data.mongo.AutoConfigureDataMongo
@@ -45,7 +45,7 @@ class ActivationTest {
         val password = "secret-password#123"
 
         justRun { identityAccessManager.activate(user, password) }
-        justRun { mailer.sendRegistrationSuccessfulMail(user) }
+        justRun { mailer.sendMail(user.email, any(), any()) }
 
         mockMvc
             .perform(
@@ -57,7 +57,7 @@ class ActivationTest {
 
         verify {
             identityAccessManager.activate(user, password)
-            mailer.sendRegistrationSuccessfulMail(user)
+            mailer.sendMail(user.email, any(), any())
         }
 
         confirmVerified(identityAccessManager, mailer)

@@ -2,7 +2,7 @@ enableFeaturePreview("VERSION_CATALOGS")
 
 rootProject.name = "system"
 
-include("registration", "infrastructure")
+include("registration", "infrastructure", "sharedkernel")
 
 dependencyResolutionManagement {
     versionCatalogs {

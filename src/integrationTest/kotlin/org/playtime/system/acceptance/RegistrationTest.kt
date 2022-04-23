@@ -12,7 +12,7 @@ import org.keycloak.admin.client.Keycloak
 import org.playtime.infrastructure.db.repository.MongoUserRepository
 import org.playtime.registration.entity.User
 import org.playtime.registration.service.IdentityAccessManager
-import org.playtime.registration.service.Mailer
+import org.playtime.shared.kernel.services.Mailer
 import org.playtime.system.configuration.KeycloakProperties
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.data.mongo.AutoConfigureDataMongo
@@ -43,7 +43,7 @@ class RegistrationTest {
         val email = "e@mail.de"
         val iamId = UUID.fromString("46617213-08c2-4dea-8f41-6dfb1432ebc7")
 
-        justRun { mailer.sendRegistrationConfirmMail(any()) }
+        justRun { mailer.sendMail(email, any(), any()) }
 
         every { identityAccessManager.createUser(username, email) } returns iamId
 
@@ -62,7 +62,7 @@ class RegistrationTest {
 
         verify {
             identityAccessManager.createUser(username, email)
-            mailer.sendRegistrationConfirmMail(any())
+            mailer.sendMail(email, any(), any())
         }
 
         confirmVerified(identityAccessManager, mailer)
@@ -74,7 +74,7 @@ class RegistrationTest {
     }
 
     @Test
-    fun `when registration route is called and the email already exists then status internal server error returend`() {
+    fun `when registration route is called and the email already exists then status internal server error returned`() {
         val username = "maxi"
         val email = "e@mail.de"
         val user = User(username = username, email = email, iamId = UUID.randomUUID())

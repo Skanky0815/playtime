@@ -17,6 +17,7 @@ import org.playtime.registration.Fake
 import org.playtime.registration.entity.User
 import org.playtime.registration.exception.UserExistsException
 import org.playtime.registration.repository.Users
+import org.playtime.shared.kernel.services.Mailer
 
 @ExtendWith(MockKExtension::class)
 internal class CreatorTest {
@@ -38,7 +39,7 @@ internal class CreatorTest {
     }
 
     @Test
-    fun `registerNewUser when email not exists then create a user at the identity access manager and store them in the repository`() {
+    fun `registerNewUser when email not exists then create a user at the identity access manager, send a conformation mail and store them in the repository`() {
         val iamId = UUID.fromString("076fca12-0e85-4623-841b-b355d3016ec2")
 
         val user = slot<User>()
@@ -51,14 +52,14 @@ internal class CreatorTest {
             )
         } returns iamId
         justRun { userRepository.add(capture(user)) }
-        justRun { mailer.sendRegistrationConfirmMail(any()) }
+        justRun { mailer.sendMail(any(), Creator.EMAIL_SUBJECT, any()) }
 
         creator.registerNewUser(registrationData)
 
         verify {
             userRepository.emailExists(any())
             userRepository.add(any())
-            mailer.sendRegistrationConfirmMail(any())
+            mailer.sendMail(any(), Creator.EMAIL_SUBJECT, any())
         }
 
         assertEquals(iamId, user.captured.iamId)

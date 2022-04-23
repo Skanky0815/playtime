@@ -7,12 +7,11 @@ import org.playtime.infrastructure.db.repository.UserRepository
 import org.playtime.infrastructure.iam.IdentityAccessManagement
 import org.playtime.infrastructure.iam.factory.PasswordRepresentationFactory
 import org.playtime.infrastructure.iam.factory.UserRepresentationFactory
-import org.playtime.registration.entity.User
 import org.playtime.registration.repository.Users
 import org.playtime.registration.service.Activator
 import org.playtime.registration.service.Creator
 import org.playtime.registration.service.IdentityAccessManager
-import org.playtime.registration.service.Mailer
+import org.playtime.shared.kernel.services.Mailer
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.data.mongodb.core.MongoTemplate
@@ -37,18 +36,6 @@ class Config {
             PasswordRepresentationFactory(),
             UserRepresentationFactory()
         )
-
-    @Bean
-    fun mailer(): Mailer =
-        object : Mailer {
-            override fun sendRegistrationConfirmMail(user: User) {
-                TODO("Not yet implemented")
-            }
-
-            override fun sendRegistrationSuccessfulMail(user: User) {
-                TODO("Not yet implemented")
-            }
-        }
 
     @Bean
     fun registration(

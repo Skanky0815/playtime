@@ -40,6 +40,7 @@ repositories { mavenCentral() }
 dependencies {
     implementation(project(":registration"))
     implementation(project(":infrastructure"))
+    implementation(project(":sharedkernel"))
 
     implementation("org.keycloak:keycloak-admin-client:17.0.1")
 
@@ -47,6 +48,7 @@ dependencies {
 
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
+    implementation("org.springframework.boot:spring-boot-starter-mail:2.6.6")
 
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 

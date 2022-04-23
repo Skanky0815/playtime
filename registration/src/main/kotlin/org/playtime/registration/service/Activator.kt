@@ -2,6 +2,7 @@ package org.playtime.registration.service
 
 import org.playtime.registration.repository.Users
 import org.playtime.registration.value.`object`.ActivationData
+import org.playtime.shared.kernel.services.Mailer
 
 class Activator(
     private val users: Users,
@@ -15,6 +16,11 @@ class Activator(
         user.activate()
         users.update(user)
 
-        mailer.sendRegistrationSuccessfulMail(user)
+        mailer.sendMail(user.email, EMAIL_SUBJECT, EMAIL_TEXT.format(user.username))
+    }
+
+    companion object {
+        const val EMAIL_SUBJECT = "Your registration at playtime.org are successful!"
+        const val EMAIL_TEXT = "Hi, %s"
     }
 }

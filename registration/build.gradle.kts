@@ -1,1 +1,1 @@
-
+dependencies { implementation(project(":sharedkernel")) }

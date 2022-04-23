@@ -31,6 +31,9 @@ Zugang zum [Keycloak](http://localhost:8081/auth/admin/master/console) backend:
 - **Username**: admin
 - **Password**: admin
 
+### MailHog
+Zugang zum [MailHog](http://localhost:8025/#)
+
 ### Anforderungen
 
 - Docker
