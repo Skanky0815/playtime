@@ -42,13 +42,13 @@ dependencies {
     implementation(project(":infrastructure"))
     implementation(project(":sharedkernel"))
 
-    implementation("org.keycloak:keycloak-admin-client:17.0.1")
+    implementation("org.keycloak:keycloak-admin-client:18.0.0")
 
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
-    implementation("org.springframework.boot:spring-boot-starter-mail:2.6.6")
+    implementation("org.springframework.boot:spring-boot-starter-mail:2.6.7")
 
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 
