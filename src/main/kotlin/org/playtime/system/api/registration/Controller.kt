@@ -18,7 +18,7 @@ class Controller(
     private val creator: Creator,
     private val activator: Activator,
 ) {
-    private val logger = LoggerFactory.getLogger(Controller::class.java)
+    private val logger = LoggerFactory.getLogger(javaClass)
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)

@@ -1,6 +1,4 @@
-enableFeaturePreview("VERSION_CATALOGS")
-
-rootProject.name = "system"
+rootProject.name = "playtime"
 
 include("registration", "infrastructure", "sharedkernel")
 

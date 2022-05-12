@@ -12,6 +12,9 @@ import org.keycloak.admin.client.Keycloak
 import org.playtime.infrastructure.db.repository.MongoUserRepository
 import org.playtime.registration.entity.User
 import org.playtime.registration.service.IdentityAccessManager
+import org.playtime.registration.value.`object`.EMail
+import org.playtime.registration.value.`object`.IamId
+import org.playtime.registration.value.`object`.Username
 import org.playtime.shared.kernel.services.Mailer
 import org.playtime.system.configuration.KeycloakProperties
 import org.springframework.beans.factory.annotation.Autowired
@@ -41,11 +44,11 @@ class RegistrationTest {
     fun `when registration route is called then status created returned`() {
         val username = "maxi"
         val email = "e@mail.de"
-        val iamId = UUID.fromString("46617213-08c2-4dea-8f41-6dfb1432ebc7")
+        val iamId = IamId.fromString("46617213-08c2-4dea-8f41-6dfb1432ebc7")
 
         justRun { mailer.sendMail(email, any(), any()) }
 
-        every { identityAccessManager.createUser(username, email) } returns iamId
+        every { identityAccessManager.createUser(username, email) } returns iamId.value
 
         mockMvc
             .perform(
@@ -77,7 +80,12 @@ class RegistrationTest {
     fun `when registration route is called and the email already exists then status internal server error returned`() {
         val username = "maxi"
         val email = "e@mail.de"
-        val user = User(username = username, email = email, iamId = UUID.randomUUID())
+        val user =
+            User(
+                username = Username(username),
+                email = EMail(email),
+                iamId = IamId(UUID.randomUUID())
+            )
         mongoUserRepository.save(user)
 
         mockMvc

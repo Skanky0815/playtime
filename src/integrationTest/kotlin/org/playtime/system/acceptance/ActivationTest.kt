@@ -12,6 +12,9 @@ import org.keycloak.admin.client.Keycloak
 import org.playtime.infrastructure.db.repository.MongoUserRepository
 import org.playtime.registration.entity.User
 import org.playtime.registration.service.IdentityAccessManager
+import org.playtime.registration.value.`object`.EMail
+import org.playtime.registration.value.`object`.IamId
+import org.playtime.registration.value.`object`.Username
 import org.playtime.shared.kernel.services.Mailer
 import org.playtime.system.configuration.KeycloakProperties
 import org.springframework.beans.factory.annotation.Autowired
@@ -39,13 +42,19 @@ class ActivationTest {
     @Test
     fun `when activation route is called and given hash is valid then status NoContent returned`() {
         val userId = "037b1ed2-411c-4fa3-879a-7d857979eb05"
-        val user = User(UUID.fromString(userId), "maxi", "m@mail.de", UUID.randomUUID())
+        val user =
+            User(
+                UUID.fromString(userId),
+                Username("maxi"),
+                EMail("m@mail.de"),
+                IamId(UUID.randomUUID())
+            )
         mongoUserRepository.save(user)
 
         val password = "secret-password#123"
 
         justRun { identityAccessManager.activate(user, password) }
-        justRun { mailer.sendMail(user.email, any(), any()) }
+        justRun { mailer.sendMail(user.email.toString(), any(), any()) }
 
         mockMvc
             .perform(
@@ -57,7 +66,7 @@ class ActivationTest {
 
         verify {
             identityAccessManager.activate(user, password)
-            mailer.sendMail(user.email, any(), any())
+            mailer.sendMail(user.email.toString(), any(), any())
         }
 
         confirmVerified(identityAccessManager, mailer)

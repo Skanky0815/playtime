@@ -11,7 +11,7 @@ object Fake {
     private val faker = faker {}
 
     fun user(username: String? = null, email: String? = null, iamId: UUID? = null) =
-        User(
+        User.new(
             username = username ?: faker.name.name(),
             email = email ?: faker.internet.safeEmail(),
             iamId = iamId ?: UUID.randomUUID()

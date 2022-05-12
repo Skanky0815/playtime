@@ -9,5 +9,6 @@ interface Users {
     fun add(user: User)
 
     fun with(userId: UUID): User
+
     fun update(user: User)
 }

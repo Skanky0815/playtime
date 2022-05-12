@@ -16,7 +16,11 @@ class Activator(
         user.activate()
         users.update(user)
 
-        mailer.sendMail(user.email, EMAIL_SUBJECT, EMAIL_TEXT.format(user.username))
+        mailer.sendMail(
+            user.email.toString(),
+            EMAIL_SUBJECT,
+            EMAIL_TEXT.format(user.username.toString())
+        )
     }
 
     companion object {

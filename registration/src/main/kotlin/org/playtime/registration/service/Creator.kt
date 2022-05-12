@@ -15,7 +15,7 @@ class Creator(
         checkIfEmailExists(registrationData.email)
 
         val user =
-            User(
+            User.new(
                 username = registrationData.username,
                 email = registrationData.email,
                 iamId =
@@ -27,7 +27,7 @@ class Creator(
 
         allUsers.add(user)
         mailer.sendMail(
-            user.email,
+            user.email.toString(),
             EMAIL_SUBJECT,
             EMAIL_TEXT.format(user.username, user.id.toString())
         )

@@ -13,6 +13,8 @@ import org.junit.jupiter.api.extension.ExtendWith
 import org.playtime.registration.Fake
 import org.playtime.registration.entity.User
 import org.playtime.registration.repository.Users
+import org.playtime.registration.value.`object`.EMail
+import org.playtime.registration.value.`object`.Username
 import org.playtime.shared.kernel.services.Mailer
 
 @ExtendWith(MockKExtension::class)
@@ -37,8 +39,8 @@ internal class ActivatorTest {
         every { users.with(activationData.userId) } returns user
         justRun { identityAccessManager.activate(user, activationData.password) }
         justRun { user.activate() }
-        every { user.email } returns "test@mail.de"
-        every { user.username } returns "maxi"
+        every { user.email } returns EMail("test@mail.de")
+        every { user.username } returns Username("maxi")
         justRun { mailer.sendMail("test@mail.de", Activator.EMAIL_SUBJECT, any()) }
         justRun { users.update(user) }
 
