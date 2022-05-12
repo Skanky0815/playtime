@@ -19,11 +19,9 @@ java.sourceCompatibility = JavaVersion.VERSION_17
 
 sourceSets {
     create("integrationTest") {
-        withConvention(org.jetbrains.kotlin.gradle.plugin.KotlinSourceSet::class) {
-            kotlin.srcDir("src/integrationTest/kotlin")
-            resources.srcDir("src/integrationTest/resources")
-            compileClasspath += sourceSets["main"].output + configurations["testRuntimeClasspath"]
-            runtimeClasspath += output + compileClasspath + sourceSets["test"].runtimeClasspath
+        kotlin {
+            compileClasspath += main.get().output + configurations.testRuntimeClasspath
+            runtimeClasspath += output + compileClasspath
         }
     }
 }
@@ -48,7 +46,7 @@ dependencies {
 
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
-    implementation("org.springframework.boot:spring-boot-starter-mail:2.6.7")
+    implementation("org.springframework.boot:spring-boot-starter-mail")
 
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 
