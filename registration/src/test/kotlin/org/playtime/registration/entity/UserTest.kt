@@ -8,7 +8,7 @@ import org.playtime.registration.Fake
 internal class UserTest {
 
     @Test
-    fun `when user will be activated then the Active flag is true and the VerificationDate is setted`() {
+    fun `when user will be activated then the Active flag is true and the VerificationDate is set`() {
         val user = Fake.user()
 
         user.activate()

@@ -74,7 +74,7 @@ internal class IdentityAccessManagementTest {
     }
 
     @Test
-    fun `activate when all okay then the new passwort will setted an the PLAYER role added`() {
+    fun `activate when all okay then the new passwort will set an the PLAYER role added`() {
         val iamId = "b174609c-7026-4364-b443-60a77b379fa3"
         val user = User.new(username = "", email = "", iamId = UUID.fromString(iamId))
         val password = "pwd"

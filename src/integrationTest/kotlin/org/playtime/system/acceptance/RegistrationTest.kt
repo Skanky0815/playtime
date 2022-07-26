@@ -54,12 +54,7 @@ class RegistrationTest {
             .perform(
                 post("/api/registration")
                     .contentType(APPLICATION_JSON)
-                    .content(
-                        """{
-                         "username": "$username",
-                         "email": "$email"
-                        }""".trimMargin()
-                    )
+                    .content("""{"username": "$username", "email": "$email"}""".trimMargin())
             )
             .andExpect(status().isCreated)
 
@@ -72,8 +67,8 @@ class RegistrationTest {
 
         val user = mongoUserRepository.findAll()[0]
         assertEquals(iamId, user.iamId)
-        assertEquals(username, user.username)
-        assertEquals(email, user.email)
+        assertEquals(username, user.username.value)
+        assertEquals(email, user.email.value)
     }
 
     @Test
@@ -96,8 +91,11 @@ class RegistrationTest {
             )
             .andExpect(status().isInternalServerError)
 
-        verify(exactly = 0) { identityAccessManager.createUser(any(), any()) }
+        verify(exactly = 0) {
+            identityAccessManager.createUser(any(), any())
+            mailer.sendMail(email, any(), any())
+        }
 
-        confirmVerified(identityAccessManager)
+        confirmVerified(identityAccessManager, mailer)
     }
 }
