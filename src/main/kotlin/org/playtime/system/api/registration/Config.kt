@@ -12,6 +12,7 @@ import org.playtime.registration.service.Activator
 import org.playtime.registration.service.Creator
 import org.playtime.registration.service.IdentityAccessManager
 import org.playtime.shared.kernel.services.Mailer
+import org.playtime.shared.kernel.services.event.Dispatcher
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.data.mongodb.core.MongoTemplate
@@ -48,6 +49,7 @@ class Config {
     fun activator(
         users: Users,
         identityAccessManager: IdentityAccessManager,
-        mailer: Mailer
-    ): Activator = Activator(users, identityAccessManager, mailer)
+        mailer: Mailer,
+        dispatcher: Dispatcher,
+    ): Activator = Activator(users, identityAccessManager, mailer, dispatcher)
 }

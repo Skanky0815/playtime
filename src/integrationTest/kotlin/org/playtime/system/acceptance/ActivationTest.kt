@@ -16,6 +16,7 @@ import org.playtime.registration.value.`object`.EMail
 import org.playtime.registration.value.`object`.IamId
 import org.playtime.registration.value.`object`.Username
 import org.playtime.shared.kernel.services.Mailer
+import org.playtime.shared.kernel.services.event.Dispatcher
 import org.playtime.system.configuration.KeycloakProperties
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.data.mongo.AutoConfigureDataMongo
@@ -38,6 +39,7 @@ class ActivationTest {
     @MockkBean(relaxed = true) private lateinit var keycloakProperties: KeycloakProperties
     @MockkBean private lateinit var identityAccessManager: IdentityAccessManager
     @MockkBean private lateinit var mailer: Mailer
+    @MockkBean private lateinit var dispatcher: Dispatcher
 
     @Test
     fun `when activation route is called and given hash is valid then status NoContent returned`() {
@@ -55,6 +57,7 @@ class ActivationTest {
 
         justRun { identityAccessManager.activate(user, password) }
         justRun { mailer.sendMail(user.email.toString(), any(), any()) }
+        justRun { dispatcher.send(any()) }
 
         mockMvc
             .perform(
@@ -67,9 +70,10 @@ class ActivationTest {
         verify {
             identityAccessManager.activate(user, password)
             mailer.sendMail(user.email.toString(), any(), any())
+            dispatcher.send(any())
         }
 
-        confirmVerified(identityAccessManager, mailer)
+        confirmVerified(identityAccessManager, mailer, dispatcher)
 
         val activeUser = mongoUserRepository.findById(user.id).get()
         assertTrue(activeUser.active)
