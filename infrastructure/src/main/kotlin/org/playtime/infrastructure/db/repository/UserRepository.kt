@@ -3,6 +3,7 @@ package org.playtime.infrastructure.db.repository
 import java.util.UUID
 import org.playtime.registration.entity.User
 import org.playtime.registration.repository.Users
+import org.playtime.registration.value.`object`.EMail
 import org.springframework.data.mongodb.core.MongoTemplate
 import org.springframework.data.mongodb.core.query.Criteria
 import org.springframework.data.mongodb.core.query.Query
@@ -13,7 +14,7 @@ class UserRepository(
 ) : Users {
     override fun emailExists(email: String) =
         mongoTemplate.exists(
-            Query().addCriteria(Criteria.where("email").`is`(email)),
+            Query().addCriteria(Criteria.where("email").`is`(EMail(email))),
             User::class.java
         )
 
