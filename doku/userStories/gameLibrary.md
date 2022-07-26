@@ -2,7 +2,7 @@
 > Als eingeloggter Benutzer will ich Spiele über den Barcode meiner Bibliothek hinzufügen.
 
 **Akzeptanzkriterien:**
-- 
+- anhand des Barcodes wird ein Spiel dem Spieler hinzugefügt
 
 # Spiel per Name der Bibliothek hinzufügen
 > Als eingeloggter Benutzer will ich ein Spiel über dessen Namen meiner Bibliothek hinzufügen.  

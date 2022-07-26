@@ -7,8 +7,9 @@ PlayTime ist eine Community Platform für Pen&Paper, Tabletop und Boardgames Spi
 Möglichkeit sich zu Spielgruppen zu finden und Spielesessions zu planen.
 
 ## User Stories
-Die Stories bilden gleichzeitig auch Kontexte/Module inder Software wieder.
+Die Stories bilden sind Kontexte/Module in der Software.
 
+### Spieler
 - [x] [Registrierung](doku/userStories/registration.md) (*Benutzer anlegen und Password vergeben*)
 - [ ] [Benutzereinstellungen](doku/userStories/userSettings.md) (*E-Mai-Adresse oder Password änder und Benutzer löschen*)
 - [ ] [Spielerprofil verwalten](doku/userStories/playerProfile.md) 
@@ -18,6 +19,11 @@ Die Stories bilden gleichzeitig auch Kontexte/Module inder Software wieder.
 - [ ] [Spielsitzung verwalten](doku/userStories/appointments.md)
 - [ ] [Neuigkeiten übersicht](doku/userStories/newsFeed.md) (*Neuigkeiten zu Spiele oder Erweiterungen, Spielgruppen und Events*)
 - [ ] [Spieler eigenschaften](doku/userStories/playerStats.md) (*Statistiken zu Genre, Häufigkeit, usw*)
+### Administratoren
+- [ ] [Spieler verwalten](doku/userStories/playerAdministration.md)
+- [ ] [Spiele verwalten](doku/userStories/gameAdministration.md) (*Spiele anlegen, verwalten*)
+- [ ] [Spieleverlage verwalten](doku/userStories/gamePublischerAdministration.md)
+- [ ] [Spiele Autoren verwalten](doku/userStories/gameAuthorAdministration.md)
 
 ## Architektur
 
