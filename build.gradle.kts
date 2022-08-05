@@ -6,6 +6,7 @@ plugins {
     id("org.springframework.boot") version "2.6.6"
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
     id("com.diffplug.spotless") version "6.4.2"
+    id("org.sonarqube") version "3.3"
 
     kotlin("jvm") version "1.6.10"
     kotlin("plugin.spring") version "1.6.10"
@@ -83,6 +84,16 @@ spotless {
     kotlin {
         target("**/*.kts", "**/*.kt")
         ktfmt().kotlinlangStyle()
+    }
+}
+
+sonarqube {
+    properties {
+        property( "sonar.projectKey", "Skanky0815_playtime")
+        property( "sonar.organization", "skanky0815")
+        property( "sonar.host.url", "https://sonarcloud.io")
+        property( "sonar.exclusions", "./**/src/test/**")
+        property( "sonar.coverage.jacoco.xmlReportPaths", "./**/build/reports/jacoco/test/jacocoTestReport.xml")
     }
 }
 
