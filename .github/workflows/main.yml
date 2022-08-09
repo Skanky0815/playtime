@@ -35,17 +35,4 @@ jobs:
         run: ./gradlew test sonarqube
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      - name: Upload Artifacts
-        uses: actions/upload-artifact@v2
-        if: success() || failure()
-        with:
-          name: test-results
-          path: 'build/reports/jacoco/test/jacocoTestReport.xml'
-      - name: Test Report
-        uses: dorny/test-reporter@v1
-        with:
-          artifact: test-results            
-          name: Unit Tests                  
-          path: '*.xml'
-          reporter: java-junit              
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}       
