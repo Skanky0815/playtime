@@ -1,11 +1,13 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("idea")
+    idea
 
     id("org.springframework.boot") version "2.6.6"
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
     id("com.diffplug.spotless") version "6.4.2"
+
+    jacoco
     id("org.sonarqube") version "3.3"
 
     kotlin("jvm") version "1.6.10"
@@ -41,7 +43,7 @@ dependencies {
     implementation(project(":infrastructure"))
     implementation(project(":sharedkernel"))
 
-    implementation("org.keycloak:keycloak-admin-client:18.0.0")
+    implementation("org.keycloak:keycloak-admin-client:19.0.1")
 
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 
@@ -59,7 +61,7 @@ dependencies {
         exclude(module = "mockito-core")
     }
     testImplementation("com.ninja-squad:springmockk:3.1.1")
-    testImplementation("de.flapdoodle.embed:de.flapdoodle.embed.mongo:3.4.5")
+    testImplementation("de.flapdoodle.embed:de.flapdoodle.embed.mongo:3.4.8")
     testImplementation(libs.mockk)
 }
 
@@ -70,7 +72,10 @@ tasks.withType<KotlinCompile> {
     }
 }
 
-tasks.withType<Test> { useJUnitPlatform() }
+tasks.withType<Test> {
+    useJUnitPlatform()
+    finalizedBy(tasks.jacocoTestReport)
+}
 
 task<Test>("integrationsTests") {
     description = "Runs the integrations tests."
@@ -106,10 +111,32 @@ subprojects {
 
     apply(plugin = "org.jetbrains.kotlin.jvm")
     apply(plugin = "com.diffplug.spotless")
+    apply(plugin = "jacoco")
 
     repositories { mavenCentral() }
 
     dependencies { testImplementation(rootProject.libs.bundles.junit) }
 
-    tasks.withType<Test> { useJUnitPlatform() }
+    tasks.withType<Test> {
+        useJUnitPlatform()
+        finalizedBy(tasks.jacocoTestReport)
+    }
+
+    tasks.jacocoTestReport {
+        dependsOn(tasks.test)
+        reports {
+            xml.required.set(true)
+        }
+    }
+}
+
+tasks.jacocoTestReport {
+    dependsOn(tasks.test)
+    reports {
+        xml.required.set(true)
+    }
+}
+
+tasks.check {
+    dependsOn(tasks.named<JacocoReport>("testCodeCoverageReport"))
 }
