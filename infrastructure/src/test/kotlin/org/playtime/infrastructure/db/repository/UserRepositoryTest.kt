@@ -54,4 +54,15 @@ internal class UserRepositoryTest {
 
         assertEquals(user, userRepository.with(id))
     }
+
+    @Test
+    fun `update when `() {
+        val user: User = mockk()
+
+        userRepository.update(user)
+
+        verify { mongoUserRepository.save(user) }
+
+        confirmVerified(mongoUserRepository)
+    }
 }
