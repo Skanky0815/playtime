@@ -56,8 +56,10 @@ internal class UserRepositoryTest {
     }
 
     @Test
-    fun `update when `() {
+    fun `update when user updated then changed user will be persisted`() {
         val user: User = mockk()
+
+        every { mongoUserRepository.save(user) } returns user
 
         userRepository.update(user)
 
