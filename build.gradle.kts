@@ -100,7 +100,7 @@ sonarqube {
         property("sonar.exclusions", "./**/src/test/**")
         property(
             "sonar.coverage.jacoco.xmlReportPaths",
-            "./**/build/reports/jacoco/test/jacocoTestReport.xml"
+            "build/reports/jacoco/test/jacocoTestReport.xml"
         )
     }
 }
