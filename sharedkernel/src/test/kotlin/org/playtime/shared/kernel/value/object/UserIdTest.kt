@@ -1,4 +1,4 @@
-package org.playtime.registration.value.`object`
+package org.playtime.shared.kernel.value.`object`
 
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test

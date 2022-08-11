@@ -1,4 +1,4 @@
-package org.playtime.registration.value.`object`
+package org.playtime.shared.kernel.value.`object`
 
 import java.util.*
 

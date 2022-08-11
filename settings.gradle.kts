@@ -1,6 +1,6 @@
 rootProject.name = "playtime"
 
-include("registration", "infrastructure", "sharedkernel")
+include("registration", "infrastructure", "sharedkernel", "playerprofile")
 
 dependencyResolutionManagement {
     versionCatalogs {
