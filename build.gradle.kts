@@ -124,19 +124,13 @@ subprojects {
 
     tasks.jacocoTestReport {
         dependsOn(tasks.test)
-        reports {
-            xml.required.set(true)
-        }
+        reports { xml.required.set(true) }
     }
 }
 
 tasks.jacocoTestReport {
     dependsOn(tasks.test)
-    reports {
-        xml.required.set(true)
-    }
+    reports { xml.required.set(true) }
 }
 
-tasks.check {
-    dependsOn(tasks.named<JacocoReport>("testCodeCoverageReport"))
-}
+tasks.check { dependsOn(tasks.named<JacocoReport>("testCodeCoverageReport")) }
