@@ -97,7 +97,7 @@ sonarqube {
         property("sonar.projectKey", "Skanky0815_playtime")
         property("sonar.organization", "skanky0815")
         property("sonar.host.url", "https://sonarcloud.io")
-        property("sonar.exclusions", "./**/src/test/**")
+        property("sonar.exclusions", "./**/src/test/**,./src/main/kotlin/org/playtime/system/SystemApplication.kt")
         property(
             "sonar.coverage.jacoco.xmlReportPaths",
             "build/reports/jacoco/test/jacocoTestReport.xml"
